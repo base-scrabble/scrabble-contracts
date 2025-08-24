@@ -10,7 +10,7 @@ import {MessageHashUtils} from "@openzeppelin/contracts/utils/cryptography/Messa
 import {EIP712} from "@openzeppelin/contracts/utils/cryptography/EIP712.sol";
 
 /**
- * @title Scrabble On-Chain Game Settlement
+ * @title Scrabble On Chain Game Settlement
  * @author Adebakin Olujimi
  * @notice Handles creation, joining, and settlement of Scrabble games with wallet-based stakes.
  * @dev Uses EIP-712 typed data signatures for secure result submission and OpenZeppelin’s ReentrancyGuard.
