@@ -1,214 +1,246 @@
-# 🎮 Decentralized Scrabble Smart Contracts
+# Base Scrabble Contracts: Decentralized Game Logic 🎲
 
-This project implements the core logic for a decentralized Scrabble game on the blockchain, utilizing Solidity smart contracts. Players can create and join games, stake funds, and settle game results securely and transparently.
+## Overview
+This project delivers the core smart contract logic for a decentralized Scrabble game, enabling secure game creation, player joining, and fair result settlement on the blockchain. Built with Solidity and Foundry, it incorporates robust access control, an on-chain wallet system, and reentrancy protection.
 
-## ✨ Features
+## Features
+*   **Decentralized Game Lifecycle**: Manages the full flow of Scrabble games, from creation and player joining to cancellation and final settlement.
+*   **Secure Game Settlement**: Utilizes EIP-712 typed data signatures for off-chain result signing, ensuring authenticity and preventing tampering before on-chain submission.
+*   **On-chain Wallet System**: Provides a dedicated `Wallet` contract for players to deposit, withdraw, and stake funds securely for game participation.
+*   **Robust Access Control**: Implements granular role-based access management using OpenZeppelin's `AccessControl` for admins, auditors, realtors, and token managers.
+*   **KYC & Blacklisting**: Features integrated KYC verification, address blacklisting, and IP whitelisting for enhanced compliance and security.
+*   **Pausable Contract State**: Allows administrators to pause contract functionality in emergencies, providing a critical circuit breaker mechanism.
+*   **Reentrancy Protection**: Guards critical functions against reentrancy attacks using OpenZeppelin's `ReentrancyGuard`.
+*   **Price Conversion**: Integrates Chainlink's `AggregatorV3Interface` to potentially facilitate real-time fiat-to-crypto price conversions for stake amounts (though currently commented out in the `Wallet` deposit logic).
 
-*   **Decentralized Game Logic**: Core Scrabble game state and rules managed entirely on-chain.
-*   **Secure Fund Management**: Players interact with an integrated `Wallet` contract to deposit, withdraw, and manage their game stakes with reentrancy protection.
-*   **Reentrancy Protection**: Critical contract functions are safeguarded against reentrancy attacks using OpenZeppelin's `ReentrancyGuard`.
-*   **EIP712 Signature Verification**: Game results are submitted off-chain and verified on-chain using EIP712 typed structured data hashing and ECDSA signatures from both players, ensuring data integrity and player consensus.
-*   **Chainlink Price Feed Integration**: Includes a `PriceConverter` library for potential integration with Chainlink `AggregatorV3Interface` to obtain real-time asset prices, enabling dynamic stake calculations (currently commented out in main contracts but available).
-*   **Fork-Based Deployment Script**: A `Foundry` script (`DeployScrabble.s.sol`) facilitates easy and repeatable deployment of the Scrabble and Wallet contracts.
+## Getting Started
 
-## 🚀 Getting Started
-
-To get a copy of this project up and running on your local machine, follow these steps.
-
-### Prerequisites
-
-Ensure you have [Foundry](https://book.getfoundry.sh/getting-started/installation) installed. Foundry is a blazing fast, portable, and modular toolkit for Ethereum application development written in Rust.
-
-```bash
-curl -L https://foundry.paradigm.xyz | bash
-foundryup
-```
+To get a copy of the project up and running on your local machine for development and testing purposes, follow these steps.
 
 ### Installation
+🚀 To set up this project, you'll need [Foundry](https://getfoundry.sh/) installed. If you don't have it, you can install it using `foundryup`.
 
 1.  **Clone the Repository**:
-
     ```bash
     git clone https://github.com/base-scrabble/scrabble-contracts.git
     cd scrabble-contracts
     ```
 
-2.  **Install Dependencies**:
-    Initialize and update the git submodules for OpenZeppelin and Chainlink contracts.
-
+2.  **Install Foundry (if not already installed)**:
     ```bash
-    forge install
+    curl -L https://foundry.paradigm.xyz | bash
+    foundryup
     ```
 
-3.  **Build the Project**:
-    Compile the smart contracts.
+3.  **Install Dependencies**:
+    The project uses Git submodules for external libraries like OpenZeppelin and Chainlink.
+    ```bash
+    forge update
+    ```
 
+4.  **Build the Project**:
+    Compile the smart contracts.
     ```bash
     forge build
     ```
 
-4.  **Run Tests (Optional but Recommended)**:
-    Execute the test suite to ensure everything is functioning as expected.
+### Environment Variables
+For deploying and interacting with the contracts, you will need to specify certain addresses. These are typically set as environment variables or passed directly to deployment scripts.
 
-    ```bash
-    forge test
-    ```
+*   `WALLET_ADDRESS`: Address of the deployed `Wallet` contract. (Required for `Scrabble` constructor)
+*   `SUPER_ADMIN_ADDRESS`: Address of the initial admin for `AccessManager`.
+*   `SUBMITTER_ADDRESS`: Address authorized to call `submitResult` on the `Scrabble` contract.
+*   `BACKEND_SIGNER_ADDRESS`: Address of the EOA used by your backend to sign authentication messages for `createGame` and `joinGame`.
 
-## 🎮 Usage
+## Usage
+This section outlines how to interact with the deployed smart contracts. All interactions are via blockchain transactions.
 
-The core interaction with the Scrabble game involves the `Wallet` and `Scrabble` smart contracts. Players will typically interact with these contracts through a dApp front-end or directly via tools like `cast` or web3 libraries.
+### Deployment
+The `script/DeployScrabble.s.sol` file (though currently commented out) provides an example of how the `Wallet` and `Scrabble` contracts would be deployed. A typical deployment involves:
 
-### Wallet Contract Interaction
+1.  Deploying the `Wallet` contract.
+2.  Deploying the `Scrabble` contract, passing the `Wallet`'s address and the necessary admin/signer addresses to its constructor.
 
-Players first need to deposit funds into their associated wallet within the system before participating in games.
+Example (conceptual, based on commented script):
+```solidity
+// In a deployment script (e.g., DeployScrabble.s.sol)
+Wallet wallet = new Wallet(); // Deploy the Wallet first
+Scrabble scrabble = new Scrabble(
+    address(wallet),
+    _superAdminAddress,    // Your designated super admin
+    _submitterAddress,     // Your designated submitter for game results
+    _backendSignerAddress  // Your backend's EIP-712 signer
+);
+```
 
-*   **Deposit Funds**: Send ETH directly to the `deposit()` function.
+### Core Contract Functions
+
+#### `Wallet.sol` Interactions
+The `Wallet` contract manages player funds.
+
+*   **Deposit Funds**:
+    Players can deposit native currency (e.g., ETH on Ethereum, BNB on BSC) into their on-chain wallet.
     ```solidity
-    function deposit() external payable nonReentrant;
+    function deposit() external payable nonReentrant
     ```
-*   **Withdraw Funds**: Withdraw available funds from the wallet.
+    To deposit 0.01 ETH: `walletContract.deposit{value: 0.01 ether}()`
+    _Errors:_ `Wallet__InsuffiecientFundsToDeposit()` (if less than `MINIMUM_DEPOSIT`), transaction reverts.
+
+*   **Withdraw Funds**:
+    Players can withdraw their accumulated balance from the wallet.
     ```solidity
-    function withdraw(uint256 amount) external nonReentrant;
+    function withdraw(uint256 amount) external nonReentrant
     ```
-*   **Check Balance**: Query the balance for any address.
+    _Example:_ `walletContract.withdraw(1e18)` to withdraw 1 ETH.
+    _Errors:_ `Wallet__BalanceIsLessThanAmountToWithdraw()`, `Wallet__AmountTooSmall()`, `GameWallet__TransferFailed()`.
+
+*   **Get Balance**:
+    Check the balance of any user in the wallet.
     ```solidity
-    function getBalance(address user) external view returns (uint256);
+    function getBalance(address user) external view returns (uint256)
     ```
 
-### Scrabble Game Workflow
+#### `Scrabble.sol` (Game) Interactions
+The `Scrabble` contract orchestrates the game logic. Authentication (`onlyAuthenticated`) using `i_backendSigner` is required for `createGame` and `joinGame`. The `submitResult` function requires a `onlySubmitter` role.
 
-1.  **Create a Game**:
-    A player initiates a new game by calling `createGame` with their desired stake. The funds are deducted from their wallet and locked.
-
+*   **Create a Game**:
+    A player initiates a new game by staking an amount.
     ```solidity
-    function createGame(uint256 stakeAmount) external nonReentrant returns (uint256 gameId);
+    function createGame(uint256 stakeAmount, bytes calldata backendSig) external returns (uint256 gameId)
     ```
+    _Parameters:_
+    *   `stakeAmount`: The amount (in Wei) each player must stake.
+    *   `backendSig`: An EIP-712 signature from `i_backendSigner` authorizing `msg.sender` for this action.
+    _Errors:_ `Scrabble__InsufficientAmountForStake()`, `Scrabble__InsufficientWalletBalance()`, `Scrabble__WalletInteractionFailed()`, `NotAuthenticated()`.
 
-    *Example Interaction (Hypothetical Client-side)*:
-    ```javascript
-    // Assume `scrabbleContract` is an instance of the Scrabble contract
-    const stakeAmount = web3.utils.toWei("0.1", "ether"); // 0.1 ETH
-    const tx = await scrabbleContract.methods.createGame(stakeAmount).send({ from: player1Address });
-    const gameId = tx.events.GameCreated.returnValues.gameId;
-    console.log(`Game created with ID: ${gameId}`);
-    ```
-
-2.  **Join a Game**:
-    A second player joins an existing game by calling `joinGame` with the matching `gameId` and `stakeAmount`. Their funds are also locked.
-
+*   **Join a Game**:
+    Another player joins an existing game, matching the creator's stake.
     ```solidity
-    function joinGame(uint256 gameId, uint256 stakeAmount) external nonReentrant;
+    function joinGame(uint256 gameId, uint256 stakeAmount, bytes calldata backendSig) external
     ```
+    _Parameters:_
+    *   `gameId`: The ID of the game to join.
+    *   `stakeAmount`: The stake amount, must match the game's initial stake.
+    *   `backendSig`: An EIP-712 signature from `i_backendSigner` authorizing `msg.sender`.
+    _Errors:_ `Scrabble__InvalidGame()`, `Scrabble__AlreadyJoined()`, `Scrabble__InvalidGamePairing()`, `Scrabble__StakeMisMatch()`, `Scrabble__WalletInteractionFailed()`, `NotAuthenticated()`.
 
-    *Example Interaction (Hypothetical Client-side)*:
-    ```javascript
-    // Assume `scrabbleContract` is an instance of the Scrabble contract
-    const gameIdToJoin = 1; // Example game ID
-    const stakeAmount = web3.utils.toWei("0.1", "ether"); // Must match player1's stake
-    await scrabbleContract.methods.joinGame(gameIdToJoin, stakeAmount).send({ from: player2Address });
-    console.log(`Player 2 joined game ${gameIdToJoin}`);
+*   **Cancel a Game**:
+    The game creator can cancel if no one has joined within the `LOBBY_TIMEOUT`.
+    ```solidity
+    function cancelGame(uint256 gameId, bytes calldata backendSig) external
     ```
+    _Parameters:_
+    *   `gameId`: The ID of the game to cancel.
+    *   `backendSig`: An EIP-712 signature from `i_backendSigner` authorizing `msg.sender`.
+    _Errors:_ `Scrabble__InvalidGame()`, `Scrabble__LobbyTimeExpired()`, `Scrabble__AlreadyJoined()`, `Scrabble__AlreadySettled()`, `NotAuthenticated()`.
 
-3.  **Submit Result**:
-    After the game is played (off-chain), the result (winner, scores, final board hash) is signed by both players. One of the players then submits these signatures along with the game data to the `submitResult` function for on-chain verification and payout.
-
+*   **Submit Game Result**:
+    The designated `i_submitter` (e.g., a centralized backend) submits the final game outcome.
     ```solidity
     function submitResult(
         uint256 gameId,
         address winner,
         bytes32 finalBoardHash,
-        uint32 p1Score,
-        uint32 p2Score,
-        uint256 nonce,
-        bytes calldata sigP1,
-        bytes calldata sigP2,
-        uint256 timestamp,
+        uint32[] calldata scores,
         uint256 roundNumber
-    ) external nonReentrant;
+    ) external
+    ```
+    _Parameters:_
+    *   `gameId`: The ID of the game.
+    *   `winner`: Address of the winner (address(0) for a draw).
+    *   `finalBoardHash`: A content-addressed hash of the final game board for verification.
+    *   `scores`: Array of scores for each player, matching the order in `Game.players`.
+    *   `roundNumber`: The expected round number for the game (prevents stale submissions).
+    _Errors:_ `Scrabble__InvalidSubmitter()`, `Scrabble__InvalidGame()`, `Scrabble__InvalidRound()`, `Scrabble__AlreadySettled()`, `Scrabble__InvalidWinner()`.
+
+*   **Get Game Data**:
+    Retrieve the full details of a specific game.
+    ```solidity
+    function getGame(uint256 gameId) external view returns (Game memory)
     ```
 
-    *Example Signature Generation (Conceptual)*:
-    Both players would sign a message digest derived from the game results using `_hashTypedDataV4`.
-    ```javascript
-    // Conceptual flow for client-side signature
-    const message = {
-        gameId: gameId,
-        player1: player1Address,
-        player2: player2Address,
-        winner: winnerAddress,
-        finalBoardHash: "0x...",
-        p1Score: 150,
-        p2Score: 120,
-        nonce: Math.floor(Math.random() * 1e18),
-        timestamp: Math.floor(Date.now() / 1000),
-        roundNumber: 1
-    };
-    // Player 1 signs `message` -> sigP1
-    // Player 2 signs `message` -> sigP2
+#### `AccessManager.sol` Interactions
+The `AccessManager` contract handles roles, permissions, and security flags.
 
-    // One player then calls submitResult with message and both signatures
-    await scrabbleContract.methods.submitResult(
-        message.gameId,
-        message.winner,
-        message.finalBoardHash,
-        message.p1Score,
-        message.p2Score,
-        message.nonce,
-        sigP1,
-        sigP2,
-        message.timestamp,
-        message.roundNumber
-    ).send({ from: player1Address }); // or player2Address
+*   **Assign Roles**:
+    Admins can grant specific roles (e.g., `AUDITOR_ROLE`, `REALTOR_ROLE`).
+    ```solidity
+    function grantRole(bytes32 role, address account) external virtual onlyRole(DEFAULT_ADMIN_ROLE)
+    ```
+    _Roles Defined:_ `ADMIN_ROLE`, `REALTOR_ROLE`, `INVESTOR_ROLE`, `TENANT_ROLE`, `AUDITOR_ROLE`, `TOKEN_ADMIN_ROLE`.
+
+*   **Set KYC Status**:
+    Auditors can verify or unverify a user's KYC status.
+    ```solidity
+    function setKYC(address user, bool status) external onlyRole(AUDITOR_ROLE)
     ```
 
-### Deployment
+*   **Blacklist Users**:
+    Admins can blacklist users, preventing them from interacting with certain functions.
+    ```solidity
+    function blacklist(address user, bool status) external onlyRole(ADMIN_ROLE)
+    ```
 
-To deploy the contracts to a live network or a local testnet, use the provided Forge script.
+*   **Pause/Unpause**:
+    Admins can pause or unpause contract interactions.
+    ```solidity
+    function pause() external onlyRole(ADMIN_ROLE)
+    function unpause() external onlyRole(ADMIN_ROLE)
+    ```
 
-```bash
-forge script script/DeployScrabble.s.sol --rpc-url <YOUR_RPC_URL> --private-key <YOUR_PRIVATE_KEY> --broadcast --verify --etherscan-api-key <YOUR_ETHERSCAN_API_KEY> -vvvv
-```
+### Custom Errors
+The contracts define specific custom errors for clearer debugging and handling:
+*   `Scrabble__WalletInteractionFailed()`
+*   `Scrabble__InsufficientAmountForStake()`
+*   `Scrabble__InsufficientWalletBalance()`
+*   `Scrabble__StakeMisMatch()`
+*   `Scrabble__InvalidGame()`
+*   `Scrabble__AlreadyJoined()`
+*   `Scrabble__InvalidWinner()`
+*   `Scrabble__InvalidSignature()`
+*   `Scrabble__AlreadySettled()`
+*   `Scrabble__InvalidSigner()`
+*   `Scrabble__InvalidGamePairing()`
+*   `Scrabble__InvalidRound()`
+*   `Scrabble__LobbyTimeExpired()`
+*   `Scrabble__InvalidSubmitter()`
+*   `NotAuthenticated()`
+*   `Wallet__InsuffiecientFundsToDeposit()`
+*   `Wallet__BalanceIsLessThanAmountToWithdraw()`
+*   `Wallet__AmountTooSmall()`
+*   `GameWallet__TransferFailed()`
+*   `Wallet__InsufficientBalanceToStake()`
 
-Replace `<YOUR_RPC_URL>`, `<YOUR_PRIVATE_KEY>`, and `<YOUR_ETHERSCAN_API_KEY>` with your actual network details.
+## Technologies Used
+| Technology         | Description                                        | Link                                                                      |
+| :----------------- | :------------------------------------------------- | :------------------------------------------------------------------------ |
+| **Solidity**       | Smart contract programming language                | [Solidity Docs](https://docs.soliditylang.org/)                           |
+| **Foundry**        | Fast, customizable, and portable Ethereum development framework | [Foundry Book](https://book.getfoundry.sh/)                               |
+| **OpenZeppelin**   | Libraries of battle-tested smart contracts         | [OpenZeppelin Docs](https://docs.openzeppelin.com/contracts/4.x/)         |
+| **Chainlink**      | Decentralized oracle network for real-world data   | [Chainlink Docs](https://docs.chain.link/data-feeds/)                     |
 
-## 🛠️ Technologies Used
+## Contributing
+We welcome contributions to the Base Scrabble Contracts! If you're looking to help improve the project, please follow these guidelines:
 
-| Technology                                                 | Description                                                                                             |
-| :--------------------------------------------------------- | :------------------------------------------------------------------------------------------------------ |
-| [Solidity](https://soliditylang.org/)                      | Primary language for writing smart contracts.                                                           |
-| [Foundry](https://book.getfoundry.sh/)                     | Ethereum development toolkit used for compiling, testing, and deploying contracts.                        |
-| [OpenZeppelin Contracts](https://docs.openzeppelin.com/)   | Industry-standard library for secure smart contract development, providing `ReentrancyGuard` and `EIP712`. |
-| [Chainlink](https://chainlinklabs.com/)                    | Decentralized oracle network providing external data, specifically `AggregatorV3Interface` for price feeds. |
+*   **Fork the repository**.
+*   **Create a new branch** for your feature or bug fix.
+*   **Implement your changes**, ensuring that your code adheres to existing coding standards.
+*   **Write clear and concise commit messages**.
+*   **Run tests** (`forge test`) to ensure everything is working as expected and add new tests for your changes.
+*   **Open a Pull Request** with a detailed description of your changes.
 
-## 🤝 Contributing
+## License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-Contributions are welcome! If you have suggestions for improvements, feature requests, or bug reports, please feel free to:
-
-*   🌐 Fork the repository.
-*   💡 Create a new branch for your feature or bugfix.
-*   👨‍💻 Make your changes and ensure tests pass.
-*   ⬆️ Submit a pull request.
-
-Please ensure your code adheres to the existing style and quality standards.
-
-## 📄 License
-
-This project is licensed under the MIT License.
-
-## 👤 Author
- Adebakin Olujimi
- Edetan Bonaventure
- Peter Arogundade
-
-*   LinkedIn: [https://linkedin.com/in/your_username](https://linkedin.com/in/your_username)
-*   Twitter: [https://twitter.com/your_username](https://twitter.com/your_username)
-*   Portfolio: [https://your-portfolio.com](https://your-portfolio.com)
+## Author
+*   **Adebakin Olujimi**
+    *   LinkedIn: [Your LinkedIn Profile] (Please replace)
+    *   Twitter: [@YourTwitterHandle] (Please replace)
 
 ---
-
-[![Foundry](https://img.shields.io/badge/Made%20with-Foundry-critical?style=flat&logo=foundry)](https://book.getfoundry.sh/)
-[![Solidity](https://img.shields.io/badge/Language-Solidity-black?style=flat&logo=solidity)](https://soliditylang.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-[![Build Status](https://img.shields.io/badge/Build-Passing-brightgreen)](https://github.com/base-scrabble/scrabble-contracts/actions)
-
+![Solidity](https://img.shields.io/badge/Solidity-^0.8.24-lightgrey)
+![Foundry](https://img.shields.io/badge/Developed%20with-Foundry-red)
+![OpenZeppelin](https://img.shields.io/badge/Powered%20by-OpenZeppelin-blue)
+![Chainlink](https://img.shields.io/badge/Price%20Feeds-Chainlink-green)
+![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 [![Readme was generated by Dokugen](https://img.shields.io/badge/Readme%20was%20generated%20by-Dokugen-brightgreen)](https://www.npmjs.com/package/dokugen)

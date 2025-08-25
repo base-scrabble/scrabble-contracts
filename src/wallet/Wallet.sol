@@ -15,7 +15,7 @@ contract Wallet is ReentrancyGuard {
 
     mapping(address => uint256) private s_balances;
 
-    uint256 private constant MINIMUM_DEPOSIT = 1;
+    uint256 private constant MINIMUM_DEPOSIT = 1e8;
 
     AggregatorV3Interface private s_priceFeed;
 
@@ -25,12 +25,14 @@ contract Wallet is ReentrancyGuard {
     event FundsWithdrawn(address indexed user, uint256 amount);
     event FundsTransferredToGame(address indexed user, uint256 amount);
     event FundsReceivedFromGame(address indexed user, uint256 amount);
-    // constructor(address priceFeed){
-    //     // s_priceFeed = AggregatorV3Interface(priceFeed);
-    // }
+
+
+    constructor(address priceFeed){
+        s_priceFeed = AggregatorV3Interface(priceFeed);
+    }
 
     function deposit() external payable nonReentrant {
-        if (msg.value /*.getConversionRate(s_priceFeed)*/ < MINIMUM_DEPOSIT) {
+        if (msg.value.getConversionRate(s_priceFeed) < MINIMUM_DEPOSIT) {
             revert Wallet__InsuffiecientFundsToDeposit();
         }
 
