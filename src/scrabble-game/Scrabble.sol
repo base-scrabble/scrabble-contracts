@@ -121,10 +121,10 @@ address private immutable i_usdc;
         _;
     }
 
-    modifier whenNotPaused() virtual override {
-        require(!paused(), "System paused");
-        _;
-    }
+    // modifier whenNotPaused() virtual  {
+    //     require(!paused(), "System paused");
+    //     _;
+    // }
 
     // Modifier to allow only backend-approved addresses
     modifier onlyAuthenticated(bytes calldata backendSig) {
@@ -558,4 +558,7 @@ function emergencyPause() external onlyRole(ADMIN_ROLE) {
     function nextGameId() external view returns (uint256) {
         return s_gameCounter + 1;
     }
+    function getDigest(bytes32 structHash) external view returns (bytes32) {
+    return _hashTypedDataV4(structHash);
+}
 }

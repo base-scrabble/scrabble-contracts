@@ -5,6 +5,7 @@ import "forge-std/Test.sol";
 import "forge-std/console.sol";
 import "../src/scrabble-game/Scrabble.sol";
 import "../src/wallet/Wallet.sol";
+import "@openzeppelin/contracts/utils/cryptography/EIP712.sol";
 
 /// @title ScrabbleHandler
 /// @notice Handler contract for invariant and fuzz testing of Scrabble and Wallet contracts
@@ -160,13 +161,15 @@ contract ScrabbleHandler is Test {
             assertGe(usdcBalance, 0);
         }
     }
+  
 
     /// @notice Generates EIP-712 signature for authentication
     /// @param player Address of the player to sign for
     /// @return Signature bytes for authentication
     function signAuth(address player) internal returns (bytes memory) {
         bytes32 structHash = keccak256(abi.encode(keccak256("Auth(address player)"), player));
-        bytes32 digest = scrabble._hashTypedDataV4(structHash);
+        bytes32 digest = scrabble.getDigest(structHash);
+
         (uint8 v, bytes32 r, bytes32 s) = vm.sign(uint256(uint160(address(0x3))), digest);
         console.log("Generated signature for player");
         console.logAddress(player);

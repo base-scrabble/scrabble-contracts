@@ -61,7 +61,7 @@ contract AccessManager is AccessControl, Pausable, ReentrancyGuard {
 
     /// @notice Restricts function to non-paused state
     // This modifier overrides the one from Pausable.sol
-    modifier whenNotPaused() virtual override {
+    modifier whenNotPaused() override {
         require(!paused(), "System paused");
         _;
     }

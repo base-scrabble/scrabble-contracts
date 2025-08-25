@@ -4,6 +4,7 @@ pragma solidity ^0.8.24;
 import "forge-std/Test.sol";
 import "forge-std/console.sol";
 import "../src/wallet/Wallet.sol";
+import "../src/scrabble-game/Scrabble.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 /// @title WalletUnitTest
@@ -11,8 +12,9 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 /// @dev Tests individual functions like deposit, withdraw, and authorization
 contract WalletUnitTest is Test {
     Wallet wallet;
-    address superAdmin = address(0x1);
-    address user = address(0x2);
+    Scrabble scrabble;
+    address superAdmin;
+    address user;
     address priceFeed = address(0x3);
     address usdt = address(0x4);
     address usdc = address(0x5);
@@ -27,13 +29,16 @@ contract WalletUnitTest is Test {
         vm.etch(usdc, bytes("mock"));
         wallet = new Wallet(priceFeed, superAdmin, usdt, backendSigner, usdc);
         console.log("Wallet deployed at", address(wallet));
+        superAdmin = makeAddr("superAdmin");
+        user = makeAddr("user");
+        vm.deal(user, 1 ether);
     }
 
     /// @notice Tests depositing ETH into the Wallet
     /// @dev Verifies balance update after ETH deposit
     function test_DepositETH() public {
         bytes memory sig = signAuth(user, backendSigner);
-        vm.deal(user, 1 ether);
+        
         vm.prank(user);
         console.log("Depositing 1 ETH for user:", user);
         wallet.depositETH{value: 1 ether}(sig);
@@ -87,9 +92,9 @@ contract WalletUnitTest is Test {
     /// @param player Address of the player to sign for
     /// @param signer Address of the backend signer
     /// @return Signature bytes for authentication
-    function signAuth(address player, address signer) internal returns (bytes memory) {
+    function signAuth(address player, address signer) internal view returns (bytes memory) {
         bytes32 structHash = keccak256(abi.encode(keccak256("Auth(address player)"), player));
-        bytes32 digest = wallet._hashTypedDataV4(structHash);
+        bytes32 digest = scrabble.getDigest(structHash);
         (uint8 v, bytes32 r, bytes32 s) = vm.sign(uint256(uint160(signer)), digest);
         console.log("Generated signature for player:", player);
         return abi.encodePacked(r, s, v);

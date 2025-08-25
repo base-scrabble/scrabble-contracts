@@ -10,33 +10,50 @@ import "../src/access/AccessManager.sol";
 /// @dev Tests individual functions like role granting, KYC, blacklist, whitelist, and pausing
 contract AccessManagerUnitTest is Test {
     AccessManager accessManager;
-    address superAdmin = address(0x1);
-    address user = address(0x2);
+    address superAdmin;
+    address user ;
     bytes32 ipHash = keccak256("192.168.1.1");
 
     /// @notice Sets up the test environment by deploying the AccessManager contract
     /// @dev Configures the contract with superAdmin as the initial admin
     function setUp() public {
-        vm.prank(superAdmin);
+        superAdmin = makeAddr("superAdmin");
+        user = makeAddr("user");
         accessManager = new AccessManager(superAdmin);
-        console.log("AccessManager deployed at");
-        console.logAddress(address(accessManager));
-        console.log("with superAdmin");
-        console.logAddress(superAdmin);
+        // accessManager.grantRole(accessManager.DEFAULT_ADMIN_ROLE(), superAdmin);
+        // console.log("AccessManager deployed at");
+        // console.logAddress(address(accessManager));
+        // console.log("with superAdmin");
+        // console.logAddress(superAdmin);
     }
 
     /// @notice Tests granting the ADMIN_ROLE to a user
     /// @dev Verifies that the user receives the admin role
-    function test_GrantAdminRole() public {
-        vm.prank(superAdmin);
-        console.log("Granting ADMIN_ROLE to user:");
-        console.logAddress(user);
-        accessManager.grantRole(accessManager.ADMIN_ROLE(), user);
-        bool hasRole = accessManager.hasRole(accessManager.ADMIN_ROLE(), user);
-        console.log("User has ADMIN_ROLE:");
-        console.logBool(hasRole);
-        assertTrue(hasRole, "User should have ADMIN_ROLE");
-    }
+function test_GrantAdminRole() public {
+    // Check that superAdmin actually has DEFAULT_ADMIN_ROLE
+    bool isAdmin = accessManager.hasRole(accessManager.DEFAULT_ADMIN_ROLE(), superAdmin);
+    assertTrue(isAdmin, "superAdmin should have DEFAULT_ADMIN_ROLE");
+
+    // Act as superAdmin
+    vm.startPrank(superAdmin);
+
+    console.log("Granting ADMIN_ROLE to user:");
+    console.log(address(user));
+
+    // Grant role to user
+    accessManager.grantRole(accessManager.ADMIN_ROLE(), user);
+
+    vm.stopPrank();
+
+    // Verify user now has ADMIN_ROLE
+    bool hasRole = accessManager.hasRole(accessManager.ADMIN_ROLE(), user);
+    console.log("User has ADMIN_ROLE:");
+    console.logBool(hasRole);
+
+    assertTrue(hasRole, "User should have ADMIN_ROLE");
+}
+
+
 
     // /// @notice Tests setting KYC verification for a user
     // /// @dev Grants AUDITOR_ROLE to a user, then sets KYC status for another address
