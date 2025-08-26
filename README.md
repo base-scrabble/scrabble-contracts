@@ -50,45 +50,40 @@ To set up and interact with the BaseScrabble smart contracts locally, follow the
     forge test
     ```
 
+
+
+
      
-  🚀 Smart Contract Deployment & Configuration
-This section outlines the key addresses and variables for deploying and interacting with the smart contracts on the Base Sepolia network.
+  📝 Project Contracts & Configuration
+This section provides a quick overview of the essential contract addresses and configuration details for the project.
 
-🏗️ Contract Addresses
-These are the core contract addresses for the project.
-
+⚙️ Contract Addresses
 Access Manager: 0x0900b2fb8671a8b9846a3F7B030b39F8D8c94f2e
 
 Base Scrabble: 0xC15b61947746e0C31484567185111fe87eda6350
 
 Wallet Contract: 0x9c5d8960e9058F512215650b21B15264A5C324cf
 
-🛠️ Configuration & Environment Variables
-Here are the additional configuration details required for the project.
+🔗 Other Details
+Base Sepolia Price Feed: 0x71041dddad3595F9CEd3DcCFBe3D1F4b0a16Bb70
 
-Base Sepolia Price Feed: The address of the oracle price feed for the Base Sepolia network.
+Wallet USDC Address: 0x323e78f944A9a1FcF3a10efcC5319DBb0bB6e673
 
-0x71041dddad3595F9CEd3DcCFBe3D1F4b0a16Bb70
-
-Wallet Addresses (USDC & USDT): The addresses for the wallet's stablecoin tokens.
-
-USDC: 0x323e78f944A9a1FcF3a10efcC5319DBb0bB6e673
-
-USDT: 0x036CbD53842c5426634e7929541eC2318f3dCF7e
-
-Backend Signers: These are placeholder addresses for your project's backend.
+Wallet USDT Address: 0x036CbD53842c5426634e7929541eC2318f3dCF7e
 
 Base Sepolia Submitter: 0x0
 
 Base Sepolia Backend Signer: 0x0
 
-Admin & Keys: Critical information for deploying and managing the contracts.
-
 Deployer Private Key: 0x0
 
 Base Sepolia Super Admin: 0x0
 
-Etherscan API Key: export ETHERSCAN_API_KEY=
+Base Sepolia Etherscan API Key: =
+
+ETHERSCAN_API_KEY: =
+
+
 
 
 ### Environment Variables
