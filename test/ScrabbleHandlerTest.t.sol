@@ -9,7 +9,7 @@ import {Wallet} from "../src/wallet/Wallet.sol";
 // import {EIP712} from "@openzeppelin/contracts/utils/cryptography/EIP712.sol";
 import {EIP712} from "@openzeppelin/contracts/utils/cryptography/EIP712.sol";
 import {AggregatorV3Interface} from "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
->
+
 /// @title ScrabbleHandler
 /// @notice Handler contract for invariant and fuzz testing of Scrabble and Wallet contracts
 /// @dev Simulates random sequences of deposits, game creation, joining, and result submission

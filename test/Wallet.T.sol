@@ -8,7 +8,7 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 contract WalletUnitTest is Test {
     Wallet wallet;
-<<<<<<< HEAD
+
     Scrabble scrabble;
     address superAdmin;
     address user;
