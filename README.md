@@ -51,26 +51,44 @@ To set up and interact with the BaseScrabble smart contracts locally, follow the
     ```
 
      
-     ///////////////////////////////////////////////////////////////
-     /////////////////   CONTRACT ADRESS ///////////////////////////
-     ///////////////////////////////////////////////////////////////
-     ACCESS_MANGER_ADDRESS=0x0900b2fb8671a8b9846a3F7B030b39F8D8c94f2e
-     BASE_SCRABBLE_ADDRESS=0xC15b61947746e0C31484567185111fe87eda6350
-     WALLET_CONTRACT_ADDRESS=0x9c5d8960e9058F512215650b21B15264A5C324cf
+  🚀 Smart Contract Deployment & Configuration
+This section outlines the key addresses and variables for deploying and interacting with the smart contracts on the Base Sepolia network.
 
+🏗️ Contract Addresses
+These are the core contract addresses for the project.
 
-     ////////////////////////////////////////////////////////////////////
-     /////////////////// OTHERS ////////////////////////////////////////
-     //////////////////////////////////////////////////////////////////
-     BASE_SEPOLIA_PRICE_FEED=0x71041dddad3595F9CEd3DcCFBe3D1F4b0a16Bb70
-     WALLET_USDC_ADDRESS=0x323e78f944A9a1FcF3a10efcC5319DBb0bB6e673
-     WALLET_USDT_ADDRESS=0x036CbD53842c5426634e7929541eC2318f3dCF7e
-     BASE_SEPOLIA_SUBMITTER=0x0
-     BASE_SEPOLIA_BACKEND_SIGNER=0x0
-     DEPLOYER_PRIVATE_KEY=0x0
-     BASE_SEPOLIA_SUPER_ADMIN=0x0
-     BASE_SEPOLIA_ETHERSCAN_API_KEY=
-     export ETHERSCAN_API_KEY=
+Access Manager: 0x0900b2fb8671a8b9846a3F7B030b39F8D8c94f2e
+
+Base Scrabble: 0xC15b61947746e0C31484567185111fe87eda6350
+
+Wallet Contract: 0x9c5d8960e9058F512215650b21B15264A5C324cf
+
+🛠️ Configuration & Environment Variables
+Here are the additional configuration details required for the project.
+
+Base Sepolia Price Feed: The address of the oracle price feed for the Base Sepolia network.
+
+0x71041dddad3595F9CEd3DcCFBe3D1F4b0a16Bb70
+
+Wallet Addresses (USDC & USDT): The addresses for the wallet's stablecoin tokens.
+
+USDC: 0x323e78f944A9a1FcF3a10efcC5319DBb0bB6e673
+
+USDT: 0x036CbD53842c5426634e7929541eC2318f3dCF7e
+
+Backend Signers: These are placeholder addresses for your project's backend.
+
+Base Sepolia Submitter: 0x0
+
+Base Sepolia Backend Signer: 0x0
+
+Admin & Keys: Critical information for deploying and managing the contracts.
+
+Deployer Private Key: 0x0
+
+Base Sepolia Super Admin: 0x0
+
+Etherscan API Key: export ETHERSCAN_API_KEY=
 
 
 ### Environment Variables
