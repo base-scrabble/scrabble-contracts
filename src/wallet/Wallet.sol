@@ -33,6 +33,10 @@ contract Wallet is EIP712, AccessManager {
     error Wallet__BalanceIsLessThanAmountToWithdraw();
     error Wallet__NotAuthenticated();
 
+    // For test purpose
+    error Wallet__InsufficientBalance();
+    error Wallet__InvalidAmount();
+
     /// STORAGE
     mapping(address => mapping(address => uint256)) private s_balances;
     uint256 private constant MINIMUM_DEPOSIT = 1e8;
@@ -45,8 +49,9 @@ contract Wallet is EIP712, AccessManager {
     address public immutable USDC;
 
     // EIP-712 authentication
-    bytes32 private constant _AUTH_TYPEHASH = keccak256("Auth(address player)");
+    bytes32 public constant _AUTH_TYPEHASH = keccak256("Auth(address player, uint256 nonce)");
     address private immutable i_backendSigner;
+    mapping(address => uint256) private s_nonces;
 
     /// EVENTS
     event FundsDeposited(address indexed user, address indexed token, uint256 amount);
@@ -275,11 +280,13 @@ contract Wallet is EIP712, AccessManager {
      * @param backendSig Signature to verify
      * @dev Internal function used for authentication modifier
      */
-    function _verifyBackendSignature(bytes calldata backendSig) internal view {
-        bytes32 structHash = keccak256(abi.encode(_AUTH_TYPEHASH, msg.sender));
+    function _verifyBackendSignature(bytes calldata backendSig) internal {
+        uint256 nonce = s_nonces[msg.sender];
+        bytes32 structHash = keccak256(abi.encode(_AUTH_TYPEHASH, msg.sender, nonce));
         bytes32 digest = _hashTypedDataV4(structHash);
         address recovered = ECDSA.recover(digest, backendSig);
         if (recovered != i_backendSigner) revert Wallet__NotAuthenticated();
+         s_nonces[msg.sender]++;
     }
 
     /**
@@ -313,6 +320,16 @@ contract Wallet is EIP712, AccessManager {
     function getMinimumDeposit() external pure returns (uint256) {
         return MINIMUM_DEPOSIT;
     }
+
+    function getDigest(bytes32 structHash) external view returns (bytes32) {
+    return _hashTypedDataV4(structHash);
+}
+
+
+function getNonce(address player) external view returns (uint256) {
+    return s_nonces[player];
+}
+
 
     /**
      * @notice Check if caller address is authorized for game interactions

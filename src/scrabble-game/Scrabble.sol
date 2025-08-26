@@ -558,7 +558,15 @@ function emergencyPause() external onlyRole(ADMIN_ROLE) {
     function nextGameId() external view returns (uint256) {
         return s_gameCounter + 1;
     }
+
     function getDigest(bytes32 structHash) external view returns (bytes32) {
     return _hashTypedDataV4(structHash);
 }
+
+
+    function getDigest(bytes32 structHash) external view returns (bytes32) {
+    return _hashTypedDataV4(structHash);
+}
+
+
 }

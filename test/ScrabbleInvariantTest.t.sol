@@ -41,7 +41,17 @@ contract ScrabbleInvariantTest is Test {
         uint256 usdtBalance = wallet.getBalance(player1, usdt);
         uint256 usdcBalance = wallet.getBalance(player1, usdc);
         console.log("Checking balances for player", player1);
+
         // console.log("ETH balance:", ethBalance, "USDT balance:", usdtBalance, "USDC balance:", usdcBalance);
+
+        console.log("ETH balance:");
+console.log(ethBalance);
+console.log("USDT balance:");
+console.log(usdtBalance);
+console.log("USDC balance:");
+console.log(usdcBalance);
+
+
         assertGe(ethBalance, 0, "ETH balance should be non-negative");
         assertGe(usdtBalance, 0, "USDT balance should be non-negative");
         assertGe(usdcBalance, 0, "USDC balance should be non-negative");
