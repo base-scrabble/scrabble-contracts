@@ -1,47 +1,37 @@
+
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
-import {AccessManager} from "../../src/access/AccessManager.sol";
+
 import {Script} from "forge-std/Script.sol";
 
-contract HelperConfig is Script{
-    struct NetworkConfig{
+import {AccessManager} from "../../src/access/AccessManager.sol";
+
+contract HelperConfig is Script {
+    struct NetworkConfig {
         address superAdmin;
     }
 
-    NetworkConfig public activeNetworkConfig;
-
-    constructor(){
-        if(block.chainid == 84532){
-            activeNetworkConfig = getBaseSepoliaEthConfig();
+    function getNetworkConfig() public view returns (NetworkConfig memory) {
+        if (block.chainid == 11155111) {
+            // Ethereum Sepolia
+            return NetworkConfig({
+                superAdmin: vm.envAddress("ETHEREUM_SEPOLIA_SUPER_ADMIN")
+            });
+        } else if (block.chainid == 84532) {
+            // Base Sepolia
+            return NetworkConfig({
+                superAdmin: vm.envAddress("BASE_SEPOLIA_SUPER_ADMIN")
+            });
+        } else if (block.chainid == 8453) {
+            // Base Mainnet
+            return NetworkConfig({
+                superAdmin: vm.envAddress("BASE_MAINNET_SUPER_ADMIN")
+            });
+        } else {
+            // Local Anvil or other networks
+            return NetworkConfig({
+                superAdmin: vm.envAddress("DEFAULT_SUPER_ADMIN")
+            });
         }
-        else if(block.chainid == 1) {
-            activeNetworkConfig = getMainNetEthConfig();
-        }
-        else{
-            activeNetworkConfig = getAnvilEthConfig();
-        }
-    }
-
-    function getBaseSepoliaEthConfig() public pure returns(NetworkConfig memory){
-        NetworkConfig memory baseSepoliaConfig = NetworkConfig({
-        superAdmin: address(0x1)
-        });
-        return baseSepoliaConfig;
-    }
-    function getMainNetEthConfig() public pure returns(NetworkConfig memory){
-        NetworkConfig memory mainNetConfig = NetworkConfig({
-        superAdmin: address(0x1)
-        });
-        return mainNetConfig;   
-    }
-
-    function getAnvilEthConfig() public view returns(NetworkConfig memory){
-        if(activeNetworkConfig.superAdmin != address(0)){
-            return activeNetworkConfig;
-        }
-        NetworkConfig memory anvilConfig = NetworkConfig({
-        superAdmin: msg.sender
-        });
-        return anvilConfig;
     }
 }

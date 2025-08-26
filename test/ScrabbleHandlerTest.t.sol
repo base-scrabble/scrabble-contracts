@@ -3,10 +3,13 @@ pragma solidity ^0.8.24;
 
 import "forge-std/Test.sol";
 import "forge-std/console.sol";
-import "../src/scrabble-game/Scrabble.sol";
-import "../src/wallet/Wallet.sol";
-import "@openzeppelin/contracts/utils/cryptography/EIP712.sol";
-
+// import "../src/scrabble-game/Scrabble.sol";
+import {Scrabble} from "../src/scrabble-game/Scrabble.sol";
+import {Wallet} from "../src/wallet/Wallet.sol";
+// import {EIP712} from "@openzeppelin/contracts/utils/cryptography/EIP712.sol";
+import {EIP712} from "@openzeppelin/contracts/utils/cryptography/EIP712.sol";
+import {AggregatorV3Interface} from "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
+>
 /// @title ScrabbleHandler
 /// @notice Handler contract for invariant and fuzz testing of Scrabble and Wallet contracts
 /// @dev Simulates random sequences of deposits, game creation, joining, and result submission
@@ -168,6 +171,9 @@ contract ScrabbleHandler is Test {
     /// @return Signature bytes for authentication
     function signAuth(address player) internal returns (bytes memory) {
         bytes32 structHash = keccak256(abi.encode(keccak256("Auth(address player)"), player));
+
+        // bytes32 digest = scrabble._hashTypedDataV4(structHash);
+
         bytes32 digest = scrabble.getDigest(structHash);
 
         (uint8 v, bytes32 r, bytes32 s) = vm.sign(uint256(uint160(address(0x3))), digest);

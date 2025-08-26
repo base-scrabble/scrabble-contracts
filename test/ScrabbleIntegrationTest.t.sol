@@ -74,6 +74,9 @@ contract ScrabbleIntegrationTest is Test {
     /// @return Signature bytes for authentication
     function signAuth(address player, address signer) internal returns (bytes memory) {
         bytes32 structHash = keccak256(abi.encode(keccak256("Auth(address player)"), player));
+
+        // bytes32 digest = scrabble._hashTypedDataV4(structHash);
+
         bytes32 digest = scrabble.getDigest(structHash);
 
         (uint8 v, bytes32 r, bytes32 s) = vm.sign(uint256(uint160(signer)), digest);

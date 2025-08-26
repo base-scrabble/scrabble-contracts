@@ -1,104 +1,151 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.24;
+pragma solidity ^0.8.29;
 
 import "forge-std/Test.sol";
 import "forge-std/console.sol";
 import "../src/scrabble-game/Scrabble.sol";
 import "../src/wallet/Wallet.sol";
+import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 
-/// @title ScrabbleUnitTest
-/// @notice Unit tests for the Scrabble contract
-/// @dev Tests individual functions like game creation, joining, and result submission
 contract ScrabbleUnitTest is Test {
     Scrabble scrabble;
     Wallet wallet;
-    address superAdmin = address(0x1);
-    address submitter = address(0x2);
-    address backendSigner = address(0x3);
-    address player1 = address(0x4);
-    address usdt = address(0x5);
-    address usdc = address(0x6);
-    address priceFeed = address(0x7);
 
-    /// @notice Sets up the test environment with mock contracts and Scrabble/Wallet deployment
-    /// @dev Configures mock price feed and token contracts, deploys Wallet and Scrabble
+    address superAdmin = address(0x1001);
+    address submitter = address(0x1002);
+    uint256 backendPk = 0xBEEF;
+    address backendSigner;
+    address player1 = address(0x1004);
+    uint256 player1Pk = 0xCAFE; // example private key
+    address player2 = address(0x1005);
+    uint256 player2Pk = 0xDEAD; // example private key
+    address usdt = address(0x1006);
+    address usdc = address(0x1007);
+    address priceFeed = address(0x1008);
+
     function setUp() public {
+        backendSigner = vm.addr(backendPk);
+
+        // Mock price feed
         vm.etch(priceFeed, bytes("mock"));
-        vm.mockCall(priceFeed, abi.encodeWithSelector(AggregatorV3Interface.latestRoundData.selector), abi.encode(0, 2000e8, 0, 0, 0));
+        vm.mockCall(
+            priceFeed,
+            abi.encodeWithSelector(AggregatorV3Interface.latestRoundData.selector),
+            abi.encode(0, 2000e8, 0, 0, 0)
+        );
+
+        // Mock tokens
         vm.etch(usdt, bytes("mock"));
         vm.etch(usdc, bytes("mock"));
-        wallet = new Wallet(priceFeed, superAdmin, usdt, backendSigner, usdc);
-        scrabble = new Scrabble(address(wallet), superAdmin, submitter, backendSigner, usdt, usdc, priceFeed);
-        console.log("Scrabble deployed at", address(scrabble), "and Wallet at", address(wallet));
-    }
 
-    /// @notice Tests creating a new game
-    /// @dev Verifies that the game is created and the creator is set as the first player
-    function test_CreateGame() public {
-        bytes memory sig = signAuth(player1, backendSigner);
-        console.log("Authorizing Scrabble as caller for Wallet by superAdmin:", superAdmin);
+        // Deploy Wallet
+        wallet = new Wallet(priceFeed, superAdmin, usdt, backendSigner, usdc);
+        console.log("Wallet deployed at");
+        console.log(address(wallet));
+
+        // Deploy Scrabble
+        scrabble = new Scrabble(address(wallet), superAdmin, submitter, backendSigner, usdt, usdc, priceFeed);
+        console.log("Scrabble deployed at");
+        console.log(address(scrabble));
+
+        // Authorize Scrabble as caller
         vm.prank(superAdmin);
         wallet.setAuthorizedCaller(address(scrabble), true);
-        console.log("Depositing 1 ETH for player1:", player1);
-        vm.prank(player1);
+        console.log("Authorized Scrabble as caller in Wallet by superAdmin");
+        console.log(superAdmin);
+    }
+
+    /// -------------------------
+    /// Helper: sign EIP-712 auth
+    /// -------------------------
+    function signAuth(address player, uint256 pk) internal view returns (bytes memory) {
+        uint256 nonce = wallet.getNonce(player);
+        bytes32 structHash = keccak256(abi.encode(wallet._AUTH_TYPEHASH(), player, nonce));
+        bytes32 digest = wallet.getDigest(structHash);
+        (uint8 v, bytes32 r, bytes32 s) = vm.sign(pk, digest);
+
+        console.log("Generated signature for player:");
+        console.log(player);
+
+        return abi.encodePacked(r, s, v);
+    }
+
+    /// -------------------------
+    /// Tests
+    /// -------------------------
+    function test_CreateGame() public {
         vm.deal(player1, 1 ether);
+        bytes memory sig = signAuth(player1, player1Pk);
+
+        console.log("Depositing 1 ETH for player1:");
+        console.log(player1);
+        vm.prank(player1);
         wallet.depositETH{value: 1 ether}(sig);
-        console.log("Creating game with player1:", player1, "and stake 1e6");
+
+        console.log("Creating game with player1:");
+        console.log(player1);
         vm.prank(player1);
         uint256 gameId = scrabble.createGame(1e6, address(0), sig);
+
         address firstPlayer = scrabble.getGame(gameId).players[0];
-        console.log("Game ID:", gameId, "First player:", firstPlayer);
+        console.log("Game ID:");
+        console.log(gameId);
+        console.log("First player in game:");
+        console.log(firstPlayer);
+
         assertEq(firstPlayer, player1, "First player should be player1");
     }
 
-    /// @notice Tests joining an existing game
-    /// @dev Verifies that a second player can join and is added to the game
     function test_JoinGame() public {
-        bytes memory sig1 = signAuth(player1, backendSigner);
-        bytes memory sig2 = signAuth(address(0x8), backendSigner);
-        console.log("Authorizing Scrabble as caller for Wallet by superAdmin:", superAdmin);
-        vm.prank(superAdmin);
-        wallet.setAuthorizedCaller(address(scrabble), true);
-        console.log("Depositing 1 ETH for player1:", player1);
-        vm.prank(player1);
+        // Player1 deposits & creates game
         vm.deal(player1, 1 ether);
+        bytes memory sig1 = signAuth(player1, player1Pk);
+        vm.prank(player1);
         wallet.depositETH{value: 1 ether}(sig1);
-        console.log("Creating game with player1:", player1);
         vm.prank(player1);
         uint256 gameId = scrabble.createGame(1e6, address(0), sig1);
-        console.log("Depositing 1 ETH for player2:", address(0x8));
-        vm.prank(address(0x8));
-        vm.deal(address(0x8), 1 ether);
+
+        // Player2 deposits & joins
+        vm.deal(player2, 1 ether);
+        bytes memory sig2 = signAuth(player2, player2Pk);
+        vm.prank(player2);
         wallet.depositETH{value: 1 ether}(sig2);
-        console.log("Player2 joining game ID:", gameId);
-        vm.prank(address(0x8));
+
+        console.log("Player2 joining game ID:");
+        console.log(gameId);
+        vm.prank(player2);
         scrabble.joinGame(gameId, 1e6, sig2);
+
         address secondPlayer = scrabble.getGame(gameId).players[1];
-        console.log("Second player in game ID", gameId, ":", secondPlayer);
-        assertEq(secondPlayer, address(0x8), "Second player should be address(0x8)");
+        console.log("Second player in game:");
+        console.log(secondPlayer);
+
+        assertEq(secondPlayer, player2, "Second player should be player2");
     }
 
-    /// @notice Tests submitting a game result
-    /// @dev Verifies that the result is submitted and the winner is set correctly
     function test_SubmitResult() public {
-        bytes memory sig = signAuth(player1, backendSigner);
-        console.log("Authorizing Scrabble as caller for Wallet by superAdmin:", superAdmin);
-        vm.prank(superAdmin);
-        wallet.setAuthorizedCaller(address(scrabble), true);
-        console.log("Depositing 1 ETH for player1:", player1);
-        vm.prank(player1);
+        // Player1 deposits & creates game
         vm.deal(player1, 1 ether);
-        wallet.depositETH{value: 1 ether}(sig);
-        console.log("Creating game with player1:", player1);
+        bytes memory sig1 = signAuth(player1, player1Pk);
         vm.prank(player1);
-        uint256 gameId = scrabble.createGame(1e6, address(0), sig);
+        wallet.depositETH{value: 1 ether}(sig1);
+        vm.prank(player1);
+        uint256 gameId = scrabble.createGame(1e6, address(0), sig1);
+
+        // Submitter submits result
+        // uint32 ;
         uint32[] memory scores = new uint32[](1);
         scores[0] = 100;
-        console.log("Submitting result for game ID:", gameId, "with winner:", player1);
+
+        console.log("Submitting result for game ID:");
+        console.log(gameId);
         vm.prank(submitter);
         scrabble.submitResult(gameId, player1, bytes32(0), scores, 0);
+
         address winner = scrabble.getGame(gameId).winner;
-        console.log("Winner for game ID", gameId, ":", winner);
+        console.log("Winner for game ID:");
+        console.log(winner);
+
         assertEq(winner, player1, "Winner should be player1");
     }
 
@@ -114,3 +161,4 @@ contract ScrabbleUnitTest is Test {
         return abi.encodePacked(r, s, v);
     }
 }
+

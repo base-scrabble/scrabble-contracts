@@ -12,3 +12,8 @@ docs/
 
 # Dotenv file
 .env
+
+# Foundry
+broadcast/
+cache/
+out/

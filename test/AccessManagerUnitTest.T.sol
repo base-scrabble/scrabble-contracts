@@ -27,6 +27,7 @@ contract AccessManagerUnitTest is Test {
         // console.logAddress(superAdmin);
     }
 
+
     /// @notice Tests granting the ADMIN_ROLE to a user
     /// @dev Verifies that the user receives the admin role
 function test_GrantAdminRole() public {
@@ -53,6 +54,20 @@ function test_GrantAdminRole() public {
     assertTrue(hasRole, "User should have ADMIN_ROLE");
 }
 
+
+
+    // /// @notice Tests granting the ADMIN_ROLE to a user
+    // /// @dev Verifies that the user receives the admin role
+    // function test_GrantAdminRole() public {
+    //     vm.prank(superAdmin);
+    //     console.log("Granting ADMIN_ROLE to user:");
+    //     console.logAddress(user);
+    //     // accessManager.grantRole(accessManager.ADMIN_ROLE(), user);
+    //     // bool hasRole = accessManager.hasRole(accessManager.ADMIN_ROLE(), user);
+    //     // console.log("User has ADMIN_ROLE:");
+    //     // console.logBool(hasRole);
+    //     // assertTrue(hasRole, "User should have ADMIN_ROLE");
+    // }
 
 
     // /// @notice Tests setting KYC verification for a user
