@@ -57,6 +57,7 @@ To set up and interact with the BaseScrabble smart contracts locally, follow the
   📝 Project Contracts & Configuration
 This section provides a quick overview of the essential contract addresses and configuration details for the project.
 
+
 ⚙️ Contract Addresses
 Access Manager: 0x0900b2fb8671a8b9846a3F7B030b39F8D8c94f2e
 
@@ -64,7 +65,10 @@ Base Scrabble: 0xC15b61947746e0C31484567185111fe87eda6350
 
 Wallet Contract: 0x9c5d8960e9058F512215650b21B15264A5C324cf
 
+
+
 🔗 Other Details
+
 Base Sepolia Price Feed: 0x71041dddad3595F9CEd3DcCFBe3D1F4b0a16Bb70
 
 Wallet USDC Address: 0x323e78f944A9a1FcF3a10efcC5319DBb0bB6e673
