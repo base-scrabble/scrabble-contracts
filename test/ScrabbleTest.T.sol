@@ -161,4 +161,3 @@ contract ScrabbleUnitTest is Test {
         return abi.encodePacked(r, s, v);
     }
 }
-

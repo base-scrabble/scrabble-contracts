@@ -104,8 +104,8 @@ contract Scrabble is EIP712, AccessManager {
     bytes32 private constant _AUTH_TYPEHASH = keccak256("Auth(address player)");
 
     address private immutable i_usdt;
-address private immutable i_usdc;
-  AggregatorV3Interface private immutable i_ethUsdFeed; 
+    address private immutable i_usdc;
+    AggregatorV3Interface private immutable i_ethUsdFeed;
 
     /// @notice Typed data struct hash for Scrabble game results (EIP-712)
     bytes32 private constant _SCRABBLE_RESULT_TYPEHASH = keccak256(
@@ -174,11 +174,7 @@ address private immutable i_usdc;
     /// @param finalBoardHash Hash of the final game board
     /// @param scores Array of player scores in the same order as game.players
     event GameSettled(
-        uint256 indexed gameId,
-        address indexed winner,
-        uint256 payout,
-        bytes32 finalBoardHash,
-        uint32[] scores
+        uint256 indexed gameId, address indexed winner, uint256 payout, bytes32 finalBoardHash, uint32[] scores
     );
 
     // ───────────────
@@ -193,13 +189,15 @@ address private immutable i_usdc;
      * @param backendSigner EOA used by your backend to EIP-712-authorize calls.
      */
     constructor(
-    address wallet, 
-    address _superAdmin, 
-    address submitter, 
-    address backendSigner,
-    address usdt,
-    address usdc,
-    address ethUsdPriceFeed )
+        address wallet,
+        address _superAdmin,
+        address submitter,
+        address backendSigner,
+        address usdt,
+        address usdc,
+        address ethUsdPriceFeed
+    )
+      
         EIP712("Scrabble", "1")
         AccessManager(_superAdmin)
     {
@@ -248,11 +246,15 @@ address private immutable i_usdc;
         gameId = ++s_gameCounter;
 
         // Initialize empty arrays for players and scores
-        address[] memory initialPlayers;
-        initialPlayers[0] = msg.sender;
-        uint32[] memory initialScores;
-        initialScores[0] = 0;
+        // address[] memory initialPlayers;
+        // initialPlayers[0] = msg.sender;
+        // uint32[] memory initialScores;
+        // initialScores[0] = 0;
 
+        address[] memory initialPlayers = new address[](1);
+        initialPlayers[0] = msg.sender;
+        uint32[] memory initialScores = new uint32[](1);
+        initialScores[0] = 0;
 
         s_games[gameId] = Game({
             players: initialPlayers,
@@ -262,13 +264,12 @@ address private immutable i_usdc;
             winner: address(0),
             scores: initialScores,
             finalBoardHash: bytes32(0)
-           
         });
 
         // set creator (index 0) & initial score
-        s_games[gameId].players.push(msg.sender);
+        // s_games[gameId].players.push(msg.sender);
 
-        s_games[gameId].scores.push(0);
+        // s_games[gameId].scores.push(0);
 
         s_createdAt[gameId] = uint64(block.timestamp);
 
@@ -524,12 +525,13 @@ address private immutable i_usdc;
     }
 
     function _isSupportedToken(address token) internal view returns (bool) {
-    return (token == address(0) || token == i_usdt || token == i_usdc);
-}
+        return (token == address(0) || token == i_usdt || token == i_usdc);
+    }
     // Any function with access control
-function emergencyPause() external onlyRole(ADMIN_ROLE) {
-    _pause(); 
-}
+
+    function emergencyPause() external onlyRole(ADMIN_ROLE) {
+        _pause();
+    }
 
     // ───────────────
     // Getters
@@ -559,14 +561,11 @@ function emergencyPause() external onlyRole(ADMIN_ROLE) {
         return s_gameCounter + 1;
     }
 
+    // function getDigest(bytes32 structHash) external view returns (bytes32) {
+    //     return _hashTypedDataV4(structHash);
+    // }
+
     function getDigest(bytes32 structHash) external view returns (bytes32) {
-    return _hashTypedDataV4(structHash);
-}
-
-
-    function getDigest(bytes32 structHash) external view returns (bytes32) {
-    return _hashTypedDataV4(structHash);
-}
-
-
+        return _hashTypedDataV4(structHash);
+    }
 }

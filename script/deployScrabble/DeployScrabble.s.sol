@@ -1,4 +1,3 @@
-
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
@@ -51,8 +50,5 @@ contract DeployScrabble is Script {
         vm.stopBroadcast();
 
         return scrabble;
-
     }
-
 }
-

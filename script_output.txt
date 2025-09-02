@@ -1,0 +1,2403 @@
+Compiling 1 files with Solc 0.8.29
+Solc 0.8.29 finished in 7.08s
+Compiler run successful with warnings:
+Warning (2018): Function state mutability can be restricted to pure
+   --> script/BatchGameCreator.s.sol:231:5:
+    |
+231 |     function _getTxHash(bool success, bytes memory data) internal returns (bytes32) {
+    |     ^ (Relevant source part starts here and spans across multiple lines).
+
+Traces:
+  [13987931] → new BatchGameCreator@0x9f7cF1d1F558E57ef88a59ac3D47214eF25B6A06
+    └─ ← [Return] 69713 bytes of code
+
+  [8425382] BatchGameCreator::setUp()
+    ├─ [0] VM::envUint("DEPLOYER_PRIVATE_KEY") [staticcall]
+    │   └─ ← [Return] <env var value>
+    ├─ [0] VM::envUint("BACKEND_SIGNER_PK") [staticcall]
+    │   └─ ← [Return] <env var value>
+    ├─ [0] VM::envUint("SUBMITTER_PK") [staticcall]
+    │   └─ ← [Return] <env var value>
+    ├─ [0] VM::envUint("PLAYER1_PK") [staticcall]
+    │   └─ ← [Return] <env var value>
+    ├─ [0] VM::envUint("PLAYER2_PK") [staticcall]
+    │   └─ ← [Return] <env var value>
+    ├─ [0] VM::envUint("PLAYER3_PK") [staticcall]
+    │   └─ ← [Return] <env var value>
+    ├─ [0] VM::envUint("PLAYER4_PK") [staticcall]
+    │   └─ ← [Return] <env var value>
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6
+    ├─ [0] VM::envAddress("BASE_SEPOLIA_USDT") [staticcall]
+    │   └─ ← [Return] <env var value>
+    ├─ [0] VM::envAddress("BASE_SEPOLIA_USDC") [staticcall]
+    │   └─ ← [Return] <env var value>
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6
+    ├─ [0] console::log("Deployer address:", 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("Backend signer address:", 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("Submitter address:", 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0xBACEDb593F4d29A416935c91a45325E6c30F0C37
+    ├─ [0] console::log("Player1 address:", 0xBACEDb593F4d29A416935c91a45325E6c30F0C37) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2
+    ├─ [0] console::log("Player2 address:", 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c
+    ├─ [0] console::log("Player3 address:", 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99
+    ├─ [0] console::log("Player4 address:", 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [3496126] → new Wallet@0x5aAdFB43eF8dAF45DD80F4676345b7676f1D70e3
+    │   ├─ emit RoleGranted(role: 0x0000000000000000000000000000000000000000000000000000000000000000, account: 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6, sender: BatchGameCreator: [0x9f7cF1d1F558E57ef88a59ac3D47214eF25B6A06])
+    │   ├─ emit RoleGranted(role: 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, account: 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6, sender: BatchGameCreator: [0x9f7cF1d1F558E57ef88a59ac3D47214eF25B6A06])
+    │   ├─ emit RoleGranted(role: 0x9e262e26e9d5bf97da5c389e15529a31bb2b13d89967a4f6eab01792567d5fd6, account: 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6, sender: BatchGameCreator: [0x9f7cF1d1F558E57ef88a59ac3D47214eF25B6A06])
+    │   └─ ← [Return] 16919 bytes of code
+    ├─ [4489478] → new Scrabble@0xf13D09eD3cbdD1C930d4de74808de1f33B6b3D4f
+    │   ├─ emit RoleGranted(role: 0x0000000000000000000000000000000000000000000000000000000000000000, account: 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6, sender: BatchGameCreator: [0x9f7cF1d1F558E57ef88a59ac3D47214eF25B6A06])
+    │   ├─ emit RoleGranted(role: 0xa49807205ce4d355092ef5a8a18f56e8913cf4a201fbe287825b095693c21775, account: 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6, sender: BatchGameCreator: [0x9f7cF1d1F558E57ef88a59ac3D47214eF25B6A06])
+    │   ├─ emit RoleGranted(role: 0x9e262e26e9d5bf97da5c389e15529a31bb2b13d89967a4f6eab01792567d5fd6, account: 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6, sender: BatchGameCreator: [0x9f7cF1d1F558E57ef88a59ac3D47214eF25B6A06])
+    │   └─ ← [Return] 21875 bytes of code
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0xBACEDb593F4d29A416935c91a45325E6c30F0C37
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99
+    └─ ← [Return]
+
+  [15573630] BatchGameCreator::run()
+    ├─ [0] console::log("Starting batch game creation...") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("Scrabble:", Scrabble: [0xf13D09eD3cbdD1C930d4de74808de1f33B6b3D4f]) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("Wallet:", Wallet: [0x5aAdFB43eF8dAF45DD80F4676345b7676f1D70e3]) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6
+    ├─ [0] console::log("Authorizing with deployer:", 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [30704] Wallet::setAuthorizedCaller(Scrabble: [0xf13D09eD3cbdD1C930d4de74808de1f33B6b3D4f], true)
+    │   ├─ emit CallerAuthorizationChanged(caller: Scrabble: [0xf13D09eD3cbdD1C930d4de74808de1f33B6b3D4f], authorized: true)
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] console::log("Scrabble contract authorized") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 0 | Action: authorizeScrabbleContract | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("Funding player wallets...") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0xBACEDb593F4d29A416935c91a45325E6c30F0C37
+    ├─ [0] console::log("Funding player1:", 0xBACEDb593F4d29A416935c91a45325E6c30F0C37) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [3241] Wallet::getNonce(0xBACEDb593F4d29A416935c91a45325E6c30F0C37) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [1027] Wallet::_AUTH_TYPEHASH() [staticcall]
+    │   └─ ← [Return] 0xac69c0ae6a1aa83ae5222029025ea73965341b7229ae811a6b19861f813ad084
+    ├─ [2295] Wallet::getDigest(0x6cecb462d0c370ad50420c408796223603f13ec84ad2ae19b8c0d158401371d4) [staticcall]
+    │   └─ ← [Return] 0x8daa610974265897d50b20d42b4b24f0b186535d4530e269db7dac42043edaf2
+    ├─ [0] VM::sign("<pk>", 0x8daa610974265897d50b20d42b4b24f0b186535d4530e269db7dac42043edaf2) [staticcall]
+    │   └─ ← [Return] 28, 0x64b61726391d2e6774b63a6b6b257b7554414824be78ac79a2dd2569b1ad3956, 0x48c9a72d4823673b13c4a70b2eef32819485d1513bca0ad5814c9a7d87e9b941
+    ├─ [86787] Wallet::depositETH{value: 1000000000000000}(0x64b61726391d2e6774b63a6b6b257b7554414824be78ac79a2dd2569b1ad395648c9a72d4823673b13c4a70b2eef32819485d1513bca0ad5814c9a7d87e9b9411c)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0x8daa610974265897d50b20d42b4b24f0b186535d4530e269db7dac42043edaf2, 28, 45553010794775059421709618122846198948597632648699752014697580332323294755158, 32922815170450198309521827967780282132651988465920361036793935941031003011393) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [15735] EACAggregatorProxy::latestRoundData() [staticcall]
+    │   │   ├─ [7502] AccessControlledOffchainAggregator::latestRoundData() [staticcall]
+    │   │   │   └─ ← [Return] 177526 [1.775e5], 431139000000 [4.311e11], 1756772498 [1.756e9], 1756772498 [1.756e9], 177526 [1.775e5]
+    │   │   └─ ← [Return] 18446744073709729142 [1.844e19], 431139000000 [4.311e11], 1756772498 [1.756e9], 1756772498 [1.756e9], 18446744073709729142 [1.844e19]
+    │   ├─ emit FundsDeposited(user: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, token: 0x0000000000000000000000000000000000000000, amount: 1000000000000000 [1e15])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 0 | Action: depositETH_player1 | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2
+    ├─ [0] console::log("Funding player2:", 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [3241] Wallet::getNonce(0x8bDe282b72373487CDb6637418A3e80DcDEe62b2) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [1027] Wallet::_AUTH_TYPEHASH() [staticcall]
+    │   └─ ← [Return] 0xac69c0ae6a1aa83ae5222029025ea73965341b7229ae811a6b19861f813ad084
+    ├─ [2295] Wallet::getDigest(0xfb92c2d75c3fc865631b2003b05e7f7ab75c811e8b98a94a9b21cf6d1cefaf32) [staticcall]
+    │   └─ ← [Return] 0x89b883ceaf6c9a45f6cee39246b415416b17d1f41f5af7e3c8e2463df7a89843
+    ├─ [0] VM::sign("<pk>", 0x89b883ceaf6c9a45f6cee39246b415416b17d1f41f5af7e3c8e2463df7a89843) [staticcall]
+    │   └─ ← [Return] 27, 0xd8c64890455cc8c157fb30709a2ce5c392169e69049088fa4a74e3bd56340e8b, 0x03cc3e59e4657d89eb8cad9858dcafc6711821e4eff4e4365e3b47ef3606d7a4
+    ├─ [69787] Wallet::depositETH{value: 1000000000000000}(0xd8c64890455cc8c157fb30709a2ce5c392169e69049088fa4a74e3bd56340e8b03cc3e59e4657d89eb8cad9858dcafc6711821e4eff4e4365e3b47ef3606d7a41b)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0x89b883ceaf6c9a45f6cee39246b415416b17d1f41f5af7e3c8e2463df7a89843, 27, 98049911828085666307375950529693320260342523304188642150245978163183279672971, 1717805678726297183214254511677745676426776284005168278486610545674981660580) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [3235] EACAggregatorProxy::latestRoundData() [staticcall]
+    │   │   ├─ [1502] AccessControlledOffchainAggregator::latestRoundData() [staticcall]
+    │   │   │   └─ ← [Return] 177526 [1.775e5], 431139000000 [4.311e11], 1756772498 [1.756e9], 1756772498 [1.756e9], 177526 [1.775e5]
+    │   │   └─ ← [Return] 18446744073709729142 [1.844e19], 431139000000 [4.311e11], 1756772498 [1.756e9], 1756772498 [1.756e9], 18446744073709729142 [1.844e19]
+    │   ├─ emit FundsDeposited(user: 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2, token: 0x0000000000000000000000000000000000000000, amount: 1000000000000000 [1e15])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 0 | Action: depositETH_player2 | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c
+    ├─ [0] console::log("Funding player3:", 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [3241] Wallet::getNonce(0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [1027] Wallet::_AUTH_TYPEHASH() [staticcall]
+    │   └─ ← [Return] 0xac69c0ae6a1aa83ae5222029025ea73965341b7229ae811a6b19861f813ad084
+    ├─ [2295] Wallet::getDigest(0x562325b671d89e7c21783051b89a1808e7e4953ff0781fee30d5b7caa485715b) [staticcall]
+    │   └─ ← [Return] 0x161689f9d32ccc9c31917460e27ce905f68a096966321f2121a0d9ac2cd88a34
+    ├─ [0] VM::sign("<pk>", 0x161689f9d32ccc9c31917460e27ce905f68a096966321f2121a0d9ac2cd88a34) [staticcall]
+    │   └─ ← [Return] 27, 0x436b813eec714c5a1c5f1ee64c2052391edc11b2252688852ee51acc97330f0e, 0x238c775d636cb0b66bae494a80722df6b4e3b7e082aeb45841157e2cd7a9eb39
+    ├─ [69787] Wallet::depositETH{value: 1000000000000000}(0x436b813eec714c5a1c5f1ee64c2052391edc11b2252688852ee51acc97330f0e238c775d636cb0b66bae494a80722df6b4e3b7e082aeb45841157e2cd7a9eb391b)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0x161689f9d32ccc9c31917460e27ce905f68a096966321f2121a0d9ac2cd88a34, 27, 30494905512705873520796386673139306939417196482306980351208280684196804103950, 16079132115044234985711678042033370841804491157343773388966610153793850567481) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [3235] EACAggregatorProxy::latestRoundData() [staticcall]
+    │   │   ├─ [1502] AccessControlledOffchainAggregator::latestRoundData() [staticcall]
+    │   │   │   └─ ← [Return] 177526 [1.775e5], 431139000000 [4.311e11], 1756772498 [1.756e9], 1756772498 [1.756e9], 177526 [1.775e5]
+    │   │   └─ ← [Return] 18446744073709729142 [1.844e19], 431139000000 [4.311e11], 1756772498 [1.756e9], 1756772498 [1.756e9], 18446744073709729142 [1.844e19]
+    │   ├─ emit FundsDeposited(user: 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c, token: 0x0000000000000000000000000000000000000000, amount: 1000000000000000 [1e15])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 0 | Action: depositETH_player3 | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99
+    ├─ [0] console::log("Funding player4:", 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [3241] Wallet::getNonce(0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [1027] Wallet::_AUTH_TYPEHASH() [staticcall]
+    │   └─ ← [Return] 0xac69c0ae6a1aa83ae5222029025ea73965341b7229ae811a6b19861f813ad084
+    ├─ [2295] Wallet::getDigest(0x7ea7857be0a83450fc486db4c78885756bba1b34f183358776762060334613e5) [staticcall]
+    │   └─ ← [Return] 0xa58ba959c57092aad8001886b988b7ace1e33e92dc3d8473fcf02157051c7d21
+    ├─ [0] VM::sign("<pk>", 0xa58ba959c57092aad8001886b988b7ace1e33e92dc3d8473fcf02157051c7d21) [staticcall]
+    │   └─ ← [Return] 28, 0xc3acebd0530a28db7cc0c816f18dd35395a2b28bf3baa2d882c4f51a1e364f54, 0x52f90b8b58879a6970ff00f4b79e65dac5d479d1fcb53db19a5cb22b534b64d8
+    ├─ [69787] Wallet::depositETH{value: 1000000000000000}(0xc3acebd0530a28db7cc0c816f18dd35395a2b28bf3baa2d882c4f51a1e364f5452f90b8b58879a6970ff00f4b79e65dac5d479d1fcb53db19a5cb22b534b64d81c)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0xa58ba959c57092aad8001886b988b7ace1e33e92dc3d8473fcf02157051c7d21, 28, 88506530695684330012459198747891951289886188916351487825057663840569294999380, 37529678178923328550787193202322244796880727441698769494301469960185460778200) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [3235] EACAggregatorProxy::latestRoundData() [staticcall]
+    │   │   ├─ [1502] AccessControlledOffchainAggregator::latestRoundData() [staticcall]
+    │   │   │   └─ ← [Return] 177526 [1.775e5], 431139000000 [4.311e11], 1756772498 [1.756e9], 1756772498 [1.756e9], 177526 [1.775e5]
+    │   │   └─ ← [Return] 18446744073709729142 [1.844e19], 431139000000 [4.311e11], 1756772498 [1.756e9], 1756772498 [1.756e9], 18446744073709729142 [1.844e19]
+    │   ├─ emit FundsDeposited(user: 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99, token: 0x0000000000000000000000000000000000000000, amount: 1000000000000000 [1e15])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 0 | Action: depositETH_player4 | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("All players funded in wallet contract") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("---- Processing Games %s to %s ----", 1, 5) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0xBACEDb593F4d29A416935c91a45325E6c30F0C37
+    ├─ [0] console::log("Creating game with player1:", 0xBACEDb593F4d29A416935c91a45325E6c30F0C37) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2163] Scrabble::getDigest(0x3c6467e9a5f8b2a40f219b789ca1e52f9949fec501eb21ce1b093f971ccbb8fb) [staticcall]
+    │   └─ ← [Return] 0x5ff3f709496da2744dac789f0199aac19154ad7878ac04bfeb2bb8603157a2d0
+    ├─ [0] VM::sign("<pk>", 0x5ff3f709496da2744dac789f0199aac19154ad7878ac04bfeb2bb8603157a2d0) [staticcall]
+    │   └─ ← [Return] 28, 0x068f9ae66a26219deba829c8d7e5a1f7e8ff67435d16b66ba2cd1b94e30bb31a, 0x6fdd027f7dc53377b8035f2686371c7f79bc3d3b1b5f6cafc7de6e8d139b83cb
+    ├─ [210791] Scrabble::createGame(1000000 [1e6], 0x0000000000000000000000000000000000000000, 0x068f9ae66a26219deba829c8d7e5a1f7e8ff67435d16b66ba2cd1b94e30bb31a6fdd027f7dc53377b8035f2686371c7f79bc3d3b1b5f6cafc7de6e8d139b83cb1c)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0x5ff3f709496da2744dac789f0199aac19154ad7878ac04bfeb2bb8603157a2d0, 28, 2967605302666835711241110549620277640773261478659394515682023218943590380314, 50597216634709672618880790590578752418620252915528376090138519582632933295051) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [2445] Wallet::getBalance(0xBACEDb593F4d29A416935c91a45325E6c30F0C37, 0x0000000000000000000000000000000000000000) [staticcall]
+    │   │   └─ ← [Return] 1000000000000000 [1e15]
+    │   ├─ [12126] Wallet::deductFunds(0xBACEDb593F4d29A416935c91a45325E6c30F0C37, 0x0000000000000000000000000000000000000000, 1000000 [1e6])
+    │   │   ├─ emit FundsTransferredToGame(user: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, token: 0x0000000000000000000000000000000000000000, amount: 1000000 [1e6])
+    │   │   └─ ← [Return] true
+    │   ├─ emit GameCreated(gameId: 1, player: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, token: 0x0000000000000000000000000000000000000000, stake: 1000000 [1e6])
+    │   └─ ← [Return] 1
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(1) [staticcall]
+    │   └─ ← [Return] "1"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(1) [staticcall]
+    │   └─ ← [Return] "1"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 1 | Action: createGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2
+    ├─ [0] console::log("Joining game with player2:", 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2163] Scrabble::getDigest(0x77273460510286bf173f61bc7de33dc756ff9d1702a03c0dfb882eacb0a49f80) [staticcall]
+    │   └─ ← [Return] 0x7484440f7d02701dc4a5f726119801ce64425b897cf855246375716eb7f9f638
+    ├─ [0] VM::sign("<pk>", 0x7484440f7d02701dc4a5f726119801ce64425b897cf855246375716eb7f9f638) [staticcall]
+    │   └─ ← [Return] 28, 0x59b8cb085196054e0b4a294952bb1b3ebaa22ae1076faec322e100bf5714fb27, 0x5e6dbf9d29bf9049780a9b6becc3959fdf9c72f2b5c67b636311458810c6414f
+    ├─ [59024] Scrabble::joinGame(1, 1000000 [1e6], 0x59b8cb085196054e0b4a294952bb1b3ebaa22ae1076faec322e100bf5714fb275e6dbf9d29bf9049780a9b6becc3959fdf9c72f2b5c67b636311458810c6414f1c)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0x7484440f7d02701dc4a5f726119801ce64425b897cf855246375716eb7f9f638, 28, 40582344662609913674156801068216180260865689815096439658535748148000325958439, 42711316567548356800624037905797421347672505169042455949770782155681852440911) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [12126] Wallet::deductFunds(0x8bDe282b72373487CDb6637418A3e80DcDEe62b2, 0x0000000000000000000000000000000000000000, 1000000 [1e6])
+    │   │   ├─ emit FundsTransferredToGame(user: 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2, token: 0x0000000000000000000000000000000000000000, amount: 1000000 [1e6])
+    │   │   └─ ← [Return] true
+    │   ├─ emit GameJoined(gameId: 1, player: 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2, stake: 1000000 [1e6])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(1) [staticcall]
+    │   └─ ← [Return] "1"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(1) [staticcall]
+    │   └─ ← [Return] "1"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 1 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c
+    ├─ [0] console::log("Joining game with player3:", 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2163] Scrabble::getDigest(0xe99b6f2d4e02ba6761312e5d860061e993945a663f12ecb21359a560808a7a78) [staticcall]
+    │   └─ ← [Return] 0xc1e4b08d58bcf7040f0a911e7cdca748c7a8c51929dfc3153a382ae70995cb7b
+    ├─ [0] VM::sign("<pk>", 0xc1e4b08d58bcf7040f0a911e7cdca748c7a8c51929dfc3153a382ae70995cb7b) [staticcall]
+    │   └─ ← [Return] 27, 0x1deee1e3523977ee0d2120d26cb136dff4d58925e6a033882b5dfa26b27adaf5, 0x774c5bf748e2b09418d1c34f0fb8fd172e602e7e2670f7580a227c4aea520dea
+    ├─ [60027] Scrabble::joinGame(1, 1000000 [1e6], 0x1deee1e3523977ee0d2120d26cb136dff4d58925e6a033882b5dfa26b27adaf5774c5bf748e2b09418d1c34f0fb8fd172e602e7e2670f7580a227c4aea520dea1b)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0xc1e4b08d58bcf7040f0a911e7cdca748c7a8c51929dfc3153a382ae70995cb7b, 27, 13539141231827151129977560122086897267748617168613097958635821798191370263285, 53960144084031981911326773105779214510212440485558547113837396404545212517866) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [12126] Wallet::deductFunds(0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c, 0x0000000000000000000000000000000000000000, 1000000 [1e6])
+    │   │   ├─ emit FundsTransferredToGame(user: 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c, token: 0x0000000000000000000000000000000000000000, amount: 1000000 [1e6])
+    │   │   └─ ← [Return] true
+    │   ├─ emit GameJoined(gameId: 1, player: 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c, stake: 1000000 [1e6])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(1) [staticcall]
+    │   └─ ← [Return] "1"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(1) [staticcall]
+    │   └─ ← [Return] "1"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 1 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99
+    ├─ [0] console::log("Joining game with player4:", 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2163] Scrabble::getDigest(0xe754c1e3b91ec0a5b704258581097b5efe0458e61ee23d0da3ab1eb9fb9ad0dc) [staticcall]
+    │   └─ ← [Return] 0x3b85bd1817dc524d77874246291b4be9c1dc67ec2b2c0817a56ca1d22cd02915
+    ├─ [0] VM::sign("<pk>", 0x3b85bd1817dc524d77874246291b4be9c1dc67ec2b2c0817a56ca1d22cd02915) [staticcall]
+    │   └─ ← [Return] 27, 0x03a32d97fa0c80f0784e0a29de8f7e9b507a2d22ddb78eea8d4101b753e76783, 0x7ba3b071ea5a58c610869b68d24b6141e77a51c6102da21df2e1a653da52ffae
+    ├─ [61030] Scrabble::joinGame(1, 1000000 [1e6], 0x03a32d97fa0c80f0784e0a29de8f7e9b507a2d22ddb78eea8d4101b753e767837ba3b071ea5a58c610869b68d24b6141e77a51c6102da21df2e1a653da52ffae1b)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0x3b85bd1817dc524d77874246291b4be9c1dc67ec2b2c0817a56ca1d22cd02915, 27, 1645249293179444754294301624949944765143603522041621934315533894160010930051, 55923694225811893699691193385585051780541301626537339433944874003286258286510) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [12126] Wallet::deductFunds(0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99, 0x0000000000000000000000000000000000000000, 1000000 [1e6])
+    │   │   ├─ emit FundsTransferredToGame(user: 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99, token: 0x0000000000000000000000000000000000000000, amount: 1000000 [1e6])
+    │   │   └─ ← [Return] true
+    │   ├─ emit GameJoined(gameId: 1, player: 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99, stake: 1000000 [1e6])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(1) [staticcall]
+    │   └─ ← [Return] "1"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(1) [staticcall]
+    │   └─ ← [Return] "1"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 1 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6
+    ├─ [0] console::log("Submitting result with submitter:", 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [98498] Scrabble::submitResult(1, 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, 0x0000000000000000000000000000000000000000000000000000000000000000, [100, 90, 0, 70], 0)
+    │   ├─ [11487] Wallet::addWinnings(0xBACEDb593F4d29A416935c91a45325E6c30F0C37, 0x0000000000000000000000000000000000000000, 4000000 [4e6])
+    │   │   ├─ emit FundsReceivedFromGame(user: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, token: 0x0000000000000000000000000000000000000000, amount: 4000000 [4e6])
+    │   │   └─ ← [Return]
+    │   ├─ emit GameSettled(gameId: 1, winner: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, payout: 4000000 [4e6], finalBoardHash: 0x0000000000000000000000000000000000000000000000000000000000000000, scores: [100, 90, 0, 70])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(1) [staticcall]
+    │   └─ ← [Return] "1"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(1) [staticcall]
+    │   └─ ← [Return] "1"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 1 | Action: submitResult | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0xBACEDb593F4d29A416935c91a45325E6c30F0C37
+    ├─ [0] console::log("Creating game with player1:", 0xBACEDb593F4d29A416935c91a45325E6c30F0C37) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2163] Scrabble::getDigest(0x3c6467e9a5f8b2a40f219b789ca1e52f9949fec501eb21ce1b093f971ccbb8fb) [staticcall]
+    │   └─ ← [Return] 0x5ff3f709496da2744dac789f0199aac19154ad7878ac04bfeb2bb8603157a2d0
+    ├─ [0] VM::sign("<pk>", 0x5ff3f709496da2744dac789f0199aac19154ad7878ac04bfeb2bb8603157a2d0) [staticcall]
+    │   └─ ← [Return] 28, 0x068f9ae66a26219deba829c8d7e5a1f7e8ff67435d16b66ba2cd1b94e30bb31a, 0x6fdd027f7dc53377b8035f2686371c7f79bc3d3b1b5f6cafc7de6e8d139b83cb
+    ├─ [182891] Scrabble::createGame(1000000 [1e6], 0x0000000000000000000000000000000000000000, 0x068f9ae66a26219deba829c8d7e5a1f7e8ff67435d16b66ba2cd1b94e30bb31a6fdd027f7dc53377b8035f2686371c7f79bc3d3b1b5f6cafc7de6e8d139b83cb1c)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0x5ff3f709496da2744dac789f0199aac19154ad7878ac04bfeb2bb8603157a2d0, 28, 2967605302666835711241110549620277640773261478659394515682023218943590380314, 50597216634709672618880790590578752418620252915528376090138519582632933295051) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [2445] Wallet::getBalance(0xBACEDb593F4d29A416935c91a45325E6c30F0C37, 0x0000000000000000000000000000000000000000) [staticcall]
+    │   │   └─ ← [Return] 1000000003000000 [1e15]
+    │   ├─ [12126] Wallet::deductFunds(0xBACEDb593F4d29A416935c91a45325E6c30F0C37, 0x0000000000000000000000000000000000000000, 1000000 [1e6])
+    │   │   ├─ emit FundsTransferredToGame(user: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, token: 0x0000000000000000000000000000000000000000, amount: 1000000 [1e6])
+    │   │   └─ ← [Return] true
+    │   ├─ emit GameCreated(gameId: 2, player: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, token: 0x0000000000000000000000000000000000000000, stake: 1000000 [1e6])
+    │   └─ ← [Return] 2
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(2) [staticcall]
+    │   └─ ← [Return] "2"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(2) [staticcall]
+    │   └─ ← [Return] "2"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 2 | Action: createGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2
+    ├─ [0] console::log("Joining game with player2:", 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2163] Scrabble::getDigest(0x77273460510286bf173f61bc7de33dc756ff9d1702a03c0dfb882eacb0a49f80) [staticcall]
+    │   └─ ← [Return] 0x7484440f7d02701dc4a5f726119801ce64425b897cf855246375716eb7f9f638
+    ├─ [0] VM::sign("<pk>", 0x7484440f7d02701dc4a5f726119801ce64425b897cf855246375716eb7f9f638) [staticcall]
+    │   └─ ← [Return] 28, 0x59b8cb085196054e0b4a294952bb1b3ebaa22ae1076faec322e100bf5714fb27, 0x5e6dbf9d29bf9049780a9b6becc3959fdf9c72f2b5c67b636311458810c6414f
+    ├─ [57024] Scrabble::joinGame(2, 1000000 [1e6], 0x59b8cb085196054e0b4a294952bb1b3ebaa22ae1076faec322e100bf5714fb275e6dbf9d29bf9049780a9b6becc3959fdf9c72f2b5c67b636311458810c6414f1c)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0x7484440f7d02701dc4a5f726119801ce64425b897cf855246375716eb7f9f638, 28, 40582344662609913674156801068216180260865689815096439658535748148000325958439, 42711316567548356800624037905797421347672505169042455949770782155681852440911) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [12126] Wallet::deductFunds(0x8bDe282b72373487CDb6637418A3e80DcDEe62b2, 0x0000000000000000000000000000000000000000, 1000000 [1e6])
+    │   │   ├─ emit FundsTransferredToGame(user: 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2, token: 0x0000000000000000000000000000000000000000, amount: 1000000 [1e6])
+    │   │   └─ ← [Return] true
+    │   ├─ emit GameJoined(gameId: 2, player: 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2, stake: 1000000 [1e6])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(2) [staticcall]
+    │   └─ ← [Return] "2"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(2) [staticcall]
+    │   └─ ← [Return] "2"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 2 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c
+    ├─ [0] console::log("Joining game with player3:", 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2163] Scrabble::getDigest(0xe99b6f2d4e02ba6761312e5d860061e993945a663f12ecb21359a560808a7a78) [staticcall]
+    │   └─ ← [Return] 0xc1e4b08d58bcf7040f0a911e7cdca748c7a8c51929dfc3153a382ae70995cb7b
+    ├─ [0] VM::sign("<pk>", 0xc1e4b08d58bcf7040f0a911e7cdca748c7a8c51929dfc3153a382ae70995cb7b) [staticcall]
+    │   └─ ← [Return] 27, 0x1deee1e3523977ee0d2120d26cb136dff4d58925e6a033882b5dfa26b27adaf5, 0x774c5bf748e2b09418d1c34f0fb8fd172e602e7e2670f7580a227c4aea520dea
+    ├─ [58027] Scrabble::joinGame(2, 1000000 [1e6], 0x1deee1e3523977ee0d2120d26cb136dff4d58925e6a033882b5dfa26b27adaf5774c5bf748e2b09418d1c34f0fb8fd172e602e7e2670f7580a227c4aea520dea1b)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0xc1e4b08d58bcf7040f0a911e7cdca748c7a8c51929dfc3153a382ae70995cb7b, 27, 13539141231827151129977560122086897267748617168613097958635821798191370263285, 53960144084031981911326773105779214510212440485558547113837396404545212517866) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [12126] Wallet::deductFunds(0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c, 0x0000000000000000000000000000000000000000, 1000000 [1e6])
+    │   │   ├─ emit FundsTransferredToGame(user: 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c, token: 0x0000000000000000000000000000000000000000, amount: 1000000 [1e6])
+    │   │   └─ ← [Return] true
+    │   ├─ emit GameJoined(gameId: 2, player: 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c, stake: 1000000 [1e6])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(2) [staticcall]
+    │   └─ ← [Return] "2"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(2) [staticcall]
+    │   └─ ← [Return] "2"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 2 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99
+    ├─ [0] console::log("Joining game with player4:", 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2163] Scrabble::getDigest(0xe754c1e3b91ec0a5b704258581097b5efe0458e61ee23d0da3ab1eb9fb9ad0dc) [staticcall]
+    │   └─ ← [Return] 0x3b85bd1817dc524d77874246291b4be9c1dc67ec2b2c0817a56ca1d22cd02915
+    ├─ [0] VM::sign("<pk>", 0x3b85bd1817dc524d77874246291b4be9c1dc67ec2b2c0817a56ca1d22cd02915) [staticcall]
+    │   └─ ← [Return] 27, 0x03a32d97fa0c80f0784e0a29de8f7e9b507a2d22ddb78eea8d4101b753e76783, 0x7ba3b071ea5a58c610869b68d24b6141e77a51c6102da21df2e1a653da52ffae
+    ├─ [59030] Scrabble::joinGame(2, 1000000 [1e6], 0x03a32d97fa0c80f0784e0a29de8f7e9b507a2d22ddb78eea8d4101b753e767837ba3b071ea5a58c610869b68d24b6141e77a51c6102da21df2e1a653da52ffae1b)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0x3b85bd1817dc524d77874246291b4be9c1dc67ec2b2c0817a56ca1d22cd02915, 27, 1645249293179444754294301624949944765143603522041621934315533894160010930051, 55923694225811893699691193385585051780541301626537339433944874003286258286510) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [12126] Wallet::deductFunds(0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99, 0x0000000000000000000000000000000000000000, 1000000 [1e6])
+    │   │   ├─ emit FundsTransferredToGame(user: 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99, token: 0x0000000000000000000000000000000000000000, amount: 1000000 [1e6])
+    │   │   └─ ← [Return] true
+    │   ├─ emit GameJoined(gameId: 2, player: 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99, stake: 1000000 [1e6])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(2) [staticcall]
+    │   └─ ← [Return] "2"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(2) [staticcall]
+    │   └─ ← [Return] "2"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 2 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6
+    ├─ [0] console::log("Submitting result with submitter:", 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [98498] Scrabble::submitResult(2, 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, 0x0000000000000000000000000000000000000000000000000000000000000000, [100, 90, 0, 70], 0)
+    │   ├─ [11487] Wallet::addWinnings(0xBACEDb593F4d29A416935c91a45325E6c30F0C37, 0x0000000000000000000000000000000000000000, 4000000 [4e6])
+    │   │   ├─ emit FundsReceivedFromGame(user: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, token: 0x0000000000000000000000000000000000000000, amount: 4000000 [4e6])
+    │   │   └─ ← [Return]
+    │   ├─ emit GameSettled(gameId: 2, winner: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, payout: 4000000 [4e6], finalBoardHash: 0x0000000000000000000000000000000000000000000000000000000000000000, scores: [100, 90, 0, 70])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(2) [staticcall]
+    │   └─ ← [Return] "2"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(2) [staticcall]
+    │   └─ ← [Return] "2"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 2 | Action: submitResult | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0xBACEDb593F4d29A416935c91a45325E6c30F0C37
+    ├─ [0] console::log("Creating game with player1:", 0xBACEDb593F4d29A416935c91a45325E6c30F0C37) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2163] Scrabble::getDigest(0x3c6467e9a5f8b2a40f219b789ca1e52f9949fec501eb21ce1b093f971ccbb8fb) [staticcall]
+    │   └─ ← [Return] 0x5ff3f709496da2744dac789f0199aac19154ad7878ac04bfeb2bb8603157a2d0
+    ├─ [0] VM::sign("<pk>", 0x5ff3f709496da2744dac789f0199aac19154ad7878ac04bfeb2bb8603157a2d0) [staticcall]
+    │   └─ ← [Return] 28, 0x068f9ae66a26219deba829c8d7e5a1f7e8ff67435d16b66ba2cd1b94e30bb31a, 0x6fdd027f7dc53377b8035f2686371c7f79bc3d3b1b5f6cafc7de6e8d139b83cb
+    ├─ [182891] Scrabble::createGame(1000000 [1e6], 0x0000000000000000000000000000000000000000, 0x068f9ae66a26219deba829c8d7e5a1f7e8ff67435d16b66ba2cd1b94e30bb31a6fdd027f7dc53377b8035f2686371c7f79bc3d3b1b5f6cafc7de6e8d139b83cb1c)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0x5ff3f709496da2744dac789f0199aac19154ad7878ac04bfeb2bb8603157a2d0, 28, 2967605302666835711241110549620277640773261478659394515682023218943590380314, 50597216634709672618880790590578752418620252915528376090138519582632933295051) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [2445] Wallet::getBalance(0xBACEDb593F4d29A416935c91a45325E6c30F0C37, 0x0000000000000000000000000000000000000000) [staticcall]
+    │   │   └─ ← [Return] 1000000006000000 [1e15]
+    │   ├─ [12126] Wallet::deductFunds(0xBACEDb593F4d29A416935c91a45325E6c30F0C37, 0x0000000000000000000000000000000000000000, 1000000 [1e6])
+    │   │   ├─ emit FundsTransferredToGame(user: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, token: 0x0000000000000000000000000000000000000000, amount: 1000000 [1e6])
+    │   │   └─ ← [Return] true
+    │   ├─ emit GameCreated(gameId: 3, player: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, token: 0x0000000000000000000000000000000000000000, stake: 1000000 [1e6])
+    │   └─ ← [Return] 3
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(3) [staticcall]
+    │   └─ ← [Return] "3"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(3) [staticcall]
+    │   └─ ← [Return] "3"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 3 | Action: createGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2
+    ├─ [0] console::log("Joining game with player2:", 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2163] Scrabble::getDigest(0x77273460510286bf173f61bc7de33dc756ff9d1702a03c0dfb882eacb0a49f80) [staticcall]
+    │   └─ ← [Return] 0x7484440f7d02701dc4a5f726119801ce64425b897cf855246375716eb7f9f638
+    ├─ [0] VM::sign("<pk>", 0x7484440f7d02701dc4a5f726119801ce64425b897cf855246375716eb7f9f638) [staticcall]
+    │   └─ ← [Return] 28, 0x59b8cb085196054e0b4a294952bb1b3ebaa22ae1076faec322e100bf5714fb27, 0x5e6dbf9d29bf9049780a9b6becc3959fdf9c72f2b5c67b636311458810c6414f
+    ├─ [57024] Scrabble::joinGame(3, 1000000 [1e6], 0x59b8cb085196054e0b4a294952bb1b3ebaa22ae1076faec322e100bf5714fb275e6dbf9d29bf9049780a9b6becc3959fdf9c72f2b5c67b636311458810c6414f1c)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0x7484440f7d02701dc4a5f726119801ce64425b897cf855246375716eb7f9f638, 28, 40582344662609913674156801068216180260865689815096439658535748148000325958439, 42711316567548356800624037905797421347672505169042455949770782155681852440911) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [12126] Wallet::deductFunds(0x8bDe282b72373487CDb6637418A3e80DcDEe62b2, 0x0000000000000000000000000000000000000000, 1000000 [1e6])
+    │   │   ├─ emit FundsTransferredToGame(user: 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2, token: 0x0000000000000000000000000000000000000000, amount: 1000000 [1e6])
+    │   │   └─ ← [Return] true
+    │   ├─ emit GameJoined(gameId: 3, player: 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2, stake: 1000000 [1e6])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(3) [staticcall]
+    │   └─ ← [Return] "3"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(3) [staticcall]
+    │   └─ ← [Return] "3"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 3 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c
+    ├─ [0] console::log("Joining game with player3:", 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2163] Scrabble::getDigest(0xe99b6f2d4e02ba6761312e5d860061e993945a663f12ecb21359a560808a7a78) [staticcall]
+    │   └─ ← [Return] 0xc1e4b08d58bcf7040f0a911e7cdca748c7a8c51929dfc3153a382ae70995cb7b
+    ├─ [0] VM::sign("<pk>", 0xc1e4b08d58bcf7040f0a911e7cdca748c7a8c51929dfc3153a382ae70995cb7b) [staticcall]
+    │   └─ ← [Return] 27, 0x1deee1e3523977ee0d2120d26cb136dff4d58925e6a033882b5dfa26b27adaf5, 0x774c5bf748e2b09418d1c34f0fb8fd172e602e7e2670f7580a227c4aea520dea
+    ├─ [58027] Scrabble::joinGame(3, 1000000 [1e6], 0x1deee1e3523977ee0d2120d26cb136dff4d58925e6a033882b5dfa26b27adaf5774c5bf748e2b09418d1c34f0fb8fd172e602e7e2670f7580a227c4aea520dea1b)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0xc1e4b08d58bcf7040f0a911e7cdca748c7a8c51929dfc3153a382ae70995cb7b, 27, 13539141231827151129977560122086897267748617168613097958635821798191370263285, 53960144084031981911326773105779214510212440485558547113837396404545212517866) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [12126] Wallet::deductFunds(0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c, 0x0000000000000000000000000000000000000000, 1000000 [1e6])
+    │   │   ├─ emit FundsTransferredToGame(user: 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c, token: 0x0000000000000000000000000000000000000000, amount: 1000000 [1e6])
+    │   │   └─ ← [Return] true
+    │   ├─ emit GameJoined(gameId: 3, player: 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c, stake: 1000000 [1e6])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(3) [staticcall]
+    │   └─ ← [Return] "3"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(3) [staticcall]
+    │   └─ ← [Return] "3"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 3 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99
+    ├─ [0] console::log("Joining game with player4:", 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2163] Scrabble::getDigest(0xe754c1e3b91ec0a5b704258581097b5efe0458e61ee23d0da3ab1eb9fb9ad0dc) [staticcall]
+    │   └─ ← [Return] 0x3b85bd1817dc524d77874246291b4be9c1dc67ec2b2c0817a56ca1d22cd02915
+    ├─ [0] VM::sign("<pk>", 0x3b85bd1817dc524d77874246291b4be9c1dc67ec2b2c0817a56ca1d22cd02915) [staticcall]
+    │   └─ ← [Return] 27, 0x03a32d97fa0c80f0784e0a29de8f7e9b507a2d22ddb78eea8d4101b753e76783, 0x7ba3b071ea5a58c610869b68d24b6141e77a51c6102da21df2e1a653da52ffae
+    ├─ [59030] Scrabble::joinGame(3, 1000000 [1e6], 0x03a32d97fa0c80f0784e0a29de8f7e9b507a2d22ddb78eea8d4101b753e767837ba3b071ea5a58c610869b68d24b6141e77a51c6102da21df2e1a653da52ffae1b)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0x3b85bd1817dc524d77874246291b4be9c1dc67ec2b2c0817a56ca1d22cd02915, 27, 1645249293179444754294301624949944765143603522041621934315533894160010930051, 55923694225811893699691193385585051780541301626537339433944874003286258286510) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [12126] Wallet::deductFunds(0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99, 0x0000000000000000000000000000000000000000, 1000000 [1e6])
+    │   │   ├─ emit FundsTransferredToGame(user: 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99, token: 0x0000000000000000000000000000000000000000, amount: 1000000 [1e6])
+    │   │   └─ ← [Return] true
+    │   ├─ emit GameJoined(gameId: 3, player: 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99, stake: 1000000 [1e6])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(3) [staticcall]
+    │   └─ ← [Return] "3"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(3) [staticcall]
+    │   └─ ← [Return] "3"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 3 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6
+    ├─ [0] console::log("Submitting result with submitter:", 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [98498] Scrabble::submitResult(3, 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, 0x0000000000000000000000000000000000000000000000000000000000000000, [100, 90, 0, 70], 0)
+    │   ├─ [11487] Wallet::addWinnings(0xBACEDb593F4d29A416935c91a45325E6c30F0C37, 0x0000000000000000000000000000000000000000, 4000000 [4e6])
+    │   │   ├─ emit FundsReceivedFromGame(user: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, token: 0x0000000000000000000000000000000000000000, amount: 4000000 [4e6])
+    │   │   └─ ← [Return]
+    │   ├─ emit GameSettled(gameId: 3, winner: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, payout: 4000000 [4e6], finalBoardHash: 0x0000000000000000000000000000000000000000000000000000000000000000, scores: [100, 90, 0, 70])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(3) [staticcall]
+    │   └─ ← [Return] "3"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(3) [staticcall]
+    │   └─ ← [Return] "3"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 3 | Action: submitResult | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0xBACEDb593F4d29A416935c91a45325E6c30F0C37
+    ├─ [0] console::log("Creating game with player1:", 0xBACEDb593F4d29A416935c91a45325E6c30F0C37) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2163] Scrabble::getDigest(0x3c6467e9a5f8b2a40f219b789ca1e52f9949fec501eb21ce1b093f971ccbb8fb) [staticcall]
+    │   └─ ← [Return] 0x5ff3f709496da2744dac789f0199aac19154ad7878ac04bfeb2bb8603157a2d0
+    ├─ [0] VM::sign("<pk>", 0x5ff3f709496da2744dac789f0199aac19154ad7878ac04bfeb2bb8603157a2d0) [staticcall]
+    │   └─ ← [Return] 28, 0x068f9ae66a26219deba829c8d7e5a1f7e8ff67435d16b66ba2cd1b94e30bb31a, 0x6fdd027f7dc53377b8035f2686371c7f79bc3d3b1b5f6cafc7de6e8d139b83cb
+    ├─ [182891] Scrabble::createGame(1000000 [1e6], 0x0000000000000000000000000000000000000000, 0x068f9ae66a26219deba829c8d7e5a1f7e8ff67435d16b66ba2cd1b94e30bb31a6fdd027f7dc53377b8035f2686371c7f79bc3d3b1b5f6cafc7de6e8d139b83cb1c)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0x5ff3f709496da2744dac789f0199aac19154ad7878ac04bfeb2bb8603157a2d0, 28, 2967605302666835711241110549620277640773261478659394515682023218943590380314, 50597216634709672618880790590578752418620252915528376090138519582632933295051) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [2445] Wallet::getBalance(0xBACEDb593F4d29A416935c91a45325E6c30F0C37, 0x0000000000000000000000000000000000000000) [staticcall]
+    │   │   └─ ← [Return] 1000000009000000 [1e15]
+    │   ├─ [12126] Wallet::deductFunds(0xBACEDb593F4d29A416935c91a45325E6c30F0C37, 0x0000000000000000000000000000000000000000, 1000000 [1e6])
+    │   │   ├─ emit FundsTransferredToGame(user: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, token: 0x0000000000000000000000000000000000000000, amount: 1000000 [1e6])
+    │   │   └─ ← [Return] true
+    │   ├─ emit GameCreated(gameId: 4, player: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, token: 0x0000000000000000000000000000000000000000, stake: 1000000 [1e6])
+    │   └─ ← [Return] 4
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(4) [staticcall]
+    │   └─ ← [Return] "4"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(4) [staticcall]
+    │   └─ ← [Return] "4"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 4 | Action: createGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2
+    ├─ [0] console::log("Joining game with player2:", 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2163] Scrabble::getDigest(0x77273460510286bf173f61bc7de33dc756ff9d1702a03c0dfb882eacb0a49f80) [staticcall]
+    │   └─ ← [Return] 0x7484440f7d02701dc4a5f726119801ce64425b897cf855246375716eb7f9f638
+    ├─ [0] VM::sign("<pk>", 0x7484440f7d02701dc4a5f726119801ce64425b897cf855246375716eb7f9f638) [staticcall]
+    │   └─ ← [Return] 28, 0x59b8cb085196054e0b4a294952bb1b3ebaa22ae1076faec322e100bf5714fb27, 0x5e6dbf9d29bf9049780a9b6becc3959fdf9c72f2b5c67b636311458810c6414f
+    ├─ [57024] Scrabble::joinGame(4, 1000000 [1e6], 0x59b8cb085196054e0b4a294952bb1b3ebaa22ae1076faec322e100bf5714fb275e6dbf9d29bf9049780a9b6becc3959fdf9c72f2b5c67b636311458810c6414f1c)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0x7484440f7d02701dc4a5f726119801ce64425b897cf855246375716eb7f9f638, 28, 40582344662609913674156801068216180260865689815096439658535748148000325958439, 42711316567548356800624037905797421347672505169042455949770782155681852440911) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [12126] Wallet::deductFunds(0x8bDe282b72373487CDb6637418A3e80DcDEe62b2, 0x0000000000000000000000000000000000000000, 1000000 [1e6])
+    │   │   ├─ emit FundsTransferredToGame(user: 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2, token: 0x0000000000000000000000000000000000000000, amount: 1000000 [1e6])
+    │   │   └─ ← [Return] true
+    │   ├─ emit GameJoined(gameId: 4, player: 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2, stake: 1000000 [1e6])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(4) [staticcall]
+    │   └─ ← [Return] "4"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(4) [staticcall]
+    │   └─ ← [Return] "4"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 4 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c
+    ├─ [0] console::log("Joining game with player3:", 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2163] Scrabble::getDigest(0xe99b6f2d4e02ba6761312e5d860061e993945a663f12ecb21359a560808a7a78) [staticcall]
+    │   └─ ← [Return] 0xc1e4b08d58bcf7040f0a911e7cdca748c7a8c51929dfc3153a382ae70995cb7b
+    ├─ [0] VM::sign("<pk>", 0xc1e4b08d58bcf7040f0a911e7cdca748c7a8c51929dfc3153a382ae70995cb7b) [staticcall]
+    │   └─ ← [Return] 27, 0x1deee1e3523977ee0d2120d26cb136dff4d58925e6a033882b5dfa26b27adaf5, 0x774c5bf748e2b09418d1c34f0fb8fd172e602e7e2670f7580a227c4aea520dea
+    ├─ [58027] Scrabble::joinGame(4, 1000000 [1e6], 0x1deee1e3523977ee0d2120d26cb136dff4d58925e6a033882b5dfa26b27adaf5774c5bf748e2b09418d1c34f0fb8fd172e602e7e2670f7580a227c4aea520dea1b)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0xc1e4b08d58bcf7040f0a911e7cdca748c7a8c51929dfc3153a382ae70995cb7b, 27, 13539141231827151129977560122086897267748617168613097958635821798191370263285, 53960144084031981911326773105779214510212440485558547113837396404545212517866) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [12126] Wallet::deductFunds(0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c, 0x0000000000000000000000000000000000000000, 1000000 [1e6])
+    │   │   ├─ emit FundsTransferredToGame(user: 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c, token: 0x0000000000000000000000000000000000000000, amount: 1000000 [1e6])
+    │   │   └─ ← [Return] true
+    │   ├─ emit GameJoined(gameId: 4, player: 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c, stake: 1000000 [1e6])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(4) [staticcall]
+    │   └─ ← [Return] "4"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(4) [staticcall]
+    │   └─ ← [Return] "4"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 4 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99
+    ├─ [0] console::log("Joining game with player4:", 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2163] Scrabble::getDigest(0xe754c1e3b91ec0a5b704258581097b5efe0458e61ee23d0da3ab1eb9fb9ad0dc) [staticcall]
+    │   └─ ← [Return] 0x3b85bd1817dc524d77874246291b4be9c1dc67ec2b2c0817a56ca1d22cd02915
+    ├─ [0] VM::sign("<pk>", 0x3b85bd1817dc524d77874246291b4be9c1dc67ec2b2c0817a56ca1d22cd02915) [staticcall]
+    │   └─ ← [Return] 27, 0x03a32d97fa0c80f0784e0a29de8f7e9b507a2d22ddb78eea8d4101b753e76783, 0x7ba3b071ea5a58c610869b68d24b6141e77a51c6102da21df2e1a653da52ffae
+    ├─ [59030] Scrabble::joinGame(4, 1000000 [1e6], 0x03a32d97fa0c80f0784e0a29de8f7e9b507a2d22ddb78eea8d4101b753e767837ba3b071ea5a58c610869b68d24b6141e77a51c6102da21df2e1a653da52ffae1b)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0x3b85bd1817dc524d77874246291b4be9c1dc67ec2b2c0817a56ca1d22cd02915, 27, 1645249293179444754294301624949944765143603522041621934315533894160010930051, 55923694225811893699691193385585051780541301626537339433944874003286258286510) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [12126] Wallet::deductFunds(0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99, 0x0000000000000000000000000000000000000000, 1000000 [1e6])
+    │   │   ├─ emit FundsTransferredToGame(user: 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99, token: 0x0000000000000000000000000000000000000000, amount: 1000000 [1e6])
+    │   │   └─ ← [Return] true
+    │   ├─ emit GameJoined(gameId: 4, player: 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99, stake: 1000000 [1e6])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(4) [staticcall]
+    │   └─ ← [Return] "4"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(4) [staticcall]
+    │   └─ ← [Return] "4"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 4 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6
+    ├─ [0] console::log("Submitting result with submitter:", 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [98498] Scrabble::submitResult(4, 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, 0x0000000000000000000000000000000000000000000000000000000000000000, [100, 90, 0, 70], 0)
+    │   ├─ [11487] Wallet::addWinnings(0xBACEDb593F4d29A416935c91a45325E6c30F0C37, 0x0000000000000000000000000000000000000000, 4000000 [4e6])
+    │   │   ├─ emit FundsReceivedFromGame(user: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, token: 0x0000000000000000000000000000000000000000, amount: 4000000 [4e6])
+    │   │   └─ ← [Return]
+    │   ├─ emit GameSettled(gameId: 4, winner: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, payout: 4000000 [4e6], finalBoardHash: 0x0000000000000000000000000000000000000000000000000000000000000000, scores: [100, 90, 0, 70])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(4) [staticcall]
+    │   └─ ← [Return] "4"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(4) [staticcall]
+    │   └─ ← [Return] "4"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 4 | Action: submitResult | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0xBACEDb593F4d29A416935c91a45325E6c30F0C37
+    ├─ [0] console::log("Creating game with player1:", 0xBACEDb593F4d29A416935c91a45325E6c30F0C37) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2163] Scrabble::getDigest(0x3c6467e9a5f8b2a40f219b789ca1e52f9949fec501eb21ce1b093f971ccbb8fb) [staticcall]
+    │   └─ ← [Return] 0x5ff3f709496da2744dac789f0199aac19154ad7878ac04bfeb2bb8603157a2d0
+    ├─ [0] VM::sign("<pk>", 0x5ff3f709496da2744dac789f0199aac19154ad7878ac04bfeb2bb8603157a2d0) [staticcall]
+    │   └─ ← [Return] 28, 0x068f9ae66a26219deba829c8d7e5a1f7e8ff67435d16b66ba2cd1b94e30bb31a, 0x6fdd027f7dc53377b8035f2686371c7f79bc3d3b1b5f6cafc7de6e8d139b83cb
+    ├─ [182891] Scrabble::createGame(1000000 [1e6], 0x0000000000000000000000000000000000000000, 0x068f9ae66a26219deba829c8d7e5a1f7e8ff67435d16b66ba2cd1b94e30bb31a6fdd027f7dc53377b8035f2686371c7f79bc3d3b1b5f6cafc7de6e8d139b83cb1c)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0x5ff3f709496da2744dac789f0199aac19154ad7878ac04bfeb2bb8603157a2d0, 28, 2967605302666835711241110549620277640773261478659394515682023218943590380314, 50597216634709672618880790590578752418620252915528376090138519582632933295051) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [2445] Wallet::getBalance(0xBACEDb593F4d29A416935c91a45325E6c30F0C37, 0x0000000000000000000000000000000000000000) [staticcall]
+    │   │   └─ ← [Return] 1000000012000000 [1e15]
+    │   ├─ [12126] Wallet::deductFunds(0xBACEDb593F4d29A416935c91a45325E6c30F0C37, 0x0000000000000000000000000000000000000000, 1000000 [1e6])
+    │   │   ├─ emit FundsTransferredToGame(user: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, token: 0x0000000000000000000000000000000000000000, amount: 1000000 [1e6])
+    │   │   └─ ← [Return] true
+    │   ├─ emit GameCreated(gameId: 5, player: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, token: 0x0000000000000000000000000000000000000000, stake: 1000000 [1e6])
+    │   └─ ← [Return] 5
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(5) [staticcall]
+    │   └─ ← [Return] "5"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(5) [staticcall]
+    │   └─ ← [Return] "5"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 5 | Action: createGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2
+    ├─ [0] console::log("Joining game with player2:", 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2163] Scrabble::getDigest(0x77273460510286bf173f61bc7de33dc756ff9d1702a03c0dfb882eacb0a49f80) [staticcall]
+    │   └─ ← [Return] 0x7484440f7d02701dc4a5f726119801ce64425b897cf855246375716eb7f9f638
+    ├─ [0] VM::sign("<pk>", 0x7484440f7d02701dc4a5f726119801ce64425b897cf855246375716eb7f9f638) [staticcall]
+    │   └─ ← [Return] 28, 0x59b8cb085196054e0b4a294952bb1b3ebaa22ae1076faec322e100bf5714fb27, 0x5e6dbf9d29bf9049780a9b6becc3959fdf9c72f2b5c67b636311458810c6414f
+    ├─ [57024] Scrabble::joinGame(5, 1000000 [1e6], 0x59b8cb085196054e0b4a294952bb1b3ebaa22ae1076faec322e100bf5714fb275e6dbf9d29bf9049780a9b6becc3959fdf9c72f2b5c67b636311458810c6414f1c)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0x7484440f7d02701dc4a5f726119801ce64425b897cf855246375716eb7f9f638, 28, 40582344662609913674156801068216180260865689815096439658535748148000325958439, 42711316567548356800624037905797421347672505169042455949770782155681852440911) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [12126] Wallet::deductFunds(0x8bDe282b72373487CDb6637418A3e80DcDEe62b2, 0x0000000000000000000000000000000000000000, 1000000 [1e6])
+    │   │   ├─ emit FundsTransferredToGame(user: 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2, token: 0x0000000000000000000000000000000000000000, amount: 1000000 [1e6])
+    │   │   └─ ← [Return] true
+    │   ├─ emit GameJoined(gameId: 5, player: 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2, stake: 1000000 [1e6])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(5) [staticcall]
+    │   └─ ← [Return] "5"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(5) [staticcall]
+    │   └─ ← [Return] "5"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 5 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c
+    ├─ [0] console::log("Joining game with player3:", 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2163] Scrabble::getDigest(0xe99b6f2d4e02ba6761312e5d860061e993945a663f12ecb21359a560808a7a78) [staticcall]
+    │   └─ ← [Return] 0xc1e4b08d58bcf7040f0a911e7cdca748c7a8c51929dfc3153a382ae70995cb7b
+    ├─ [0] VM::sign("<pk>", 0xc1e4b08d58bcf7040f0a911e7cdca748c7a8c51929dfc3153a382ae70995cb7b) [staticcall]
+    │   └─ ← [Return] 27, 0x1deee1e3523977ee0d2120d26cb136dff4d58925e6a033882b5dfa26b27adaf5, 0x774c5bf748e2b09418d1c34f0fb8fd172e602e7e2670f7580a227c4aea520dea
+    ├─ [58027] Scrabble::joinGame(5, 1000000 [1e6], 0x1deee1e3523977ee0d2120d26cb136dff4d58925e6a033882b5dfa26b27adaf5774c5bf748e2b09418d1c34f0fb8fd172e602e7e2670f7580a227c4aea520dea1b)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0xc1e4b08d58bcf7040f0a911e7cdca748c7a8c51929dfc3153a382ae70995cb7b, 27, 13539141231827151129977560122086897267748617168613097958635821798191370263285, 53960144084031981911326773105779214510212440485558547113837396404545212517866) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [12126] Wallet::deductFunds(0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c, 0x0000000000000000000000000000000000000000, 1000000 [1e6])
+    │   │   ├─ emit FundsTransferredToGame(user: 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c, token: 0x0000000000000000000000000000000000000000, amount: 1000000 [1e6])
+    │   │   └─ ← [Return] true
+    │   ├─ emit GameJoined(gameId: 5, player: 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c, stake: 1000000 [1e6])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(5) [staticcall]
+    │   └─ ← [Return] "5"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(5) [staticcall]
+    │   └─ ← [Return] "5"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 5 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99
+    ├─ [0] console::log("Joining game with player4:", 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2163] Scrabble::getDigest(0xe754c1e3b91ec0a5b704258581097b5efe0458e61ee23d0da3ab1eb9fb9ad0dc) [staticcall]
+    │   └─ ← [Return] 0x3b85bd1817dc524d77874246291b4be9c1dc67ec2b2c0817a56ca1d22cd02915
+    ├─ [0] VM::sign("<pk>", 0x3b85bd1817dc524d77874246291b4be9c1dc67ec2b2c0817a56ca1d22cd02915) [staticcall]
+    │   └─ ← [Return] 27, 0x03a32d97fa0c80f0784e0a29de8f7e9b507a2d22ddb78eea8d4101b753e76783, 0x7ba3b071ea5a58c610869b68d24b6141e77a51c6102da21df2e1a653da52ffae
+    ├─ [59030] Scrabble::joinGame(5, 1000000 [1e6], 0x03a32d97fa0c80f0784e0a29de8f7e9b507a2d22ddb78eea8d4101b753e767837ba3b071ea5a58c610869b68d24b6141e77a51c6102da21df2e1a653da52ffae1b)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0x3b85bd1817dc524d77874246291b4be9c1dc67ec2b2c0817a56ca1d22cd02915, 27, 1645249293179444754294301624949944765143603522041621934315533894160010930051, 55923694225811893699691193385585051780541301626537339433944874003286258286510) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [12126] Wallet::deductFunds(0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99, 0x0000000000000000000000000000000000000000, 1000000 [1e6])
+    │   │   ├─ emit FundsTransferredToGame(user: 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99, token: 0x0000000000000000000000000000000000000000, amount: 1000000 [1e6])
+    │   │   └─ ← [Return] true
+    │   ├─ emit GameJoined(gameId: 5, player: 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99, stake: 1000000 [1e6])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(5) [staticcall]
+    │   └─ ← [Return] "5"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(5) [staticcall]
+    │   └─ ← [Return] "5"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 5 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6
+    ├─ [0] console::log("Submitting result with submitter:", 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [98498] Scrabble::submitResult(5, 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, 0x0000000000000000000000000000000000000000000000000000000000000000, [100, 90, 0, 70], 0)
+    │   ├─ [11487] Wallet::addWinnings(0xBACEDb593F4d29A416935c91a45325E6c30F0C37, 0x0000000000000000000000000000000000000000, 4000000 [4e6])
+    │   │   ├─ emit FundsReceivedFromGame(user: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, token: 0x0000000000000000000000000000000000000000, amount: 4000000 [4e6])
+    │   │   └─ ← [Return]
+    │   ├─ emit GameSettled(gameId: 5, winner: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, payout: 4000000 [4e6], finalBoardHash: 0x0000000000000000000000000000000000000000000000000000000000000000, scores: [100, 90, 0, 70])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(5) [staticcall]
+    │   └─ ← [Return] "5"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(5) [staticcall]
+    │   └─ ← [Return] "5"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 5 | Action: submitResult | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("---- Processing Games %s to %s ----", 6, 10) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0xBACEDb593F4d29A416935c91a45325E6c30F0C37
+    ├─ [0] console::log("Creating game with player1:", 0xBACEDb593F4d29A416935c91a45325E6c30F0C37) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2163] Scrabble::getDigest(0x3c6467e9a5f8b2a40f219b789ca1e52f9949fec501eb21ce1b093f971ccbb8fb) [staticcall]
+    │   └─ ← [Return] 0x5ff3f709496da2744dac789f0199aac19154ad7878ac04bfeb2bb8603157a2d0
+    ├─ [0] VM::sign("<pk>", 0x5ff3f709496da2744dac789f0199aac19154ad7878ac04bfeb2bb8603157a2d0) [staticcall]
+    │   └─ ← [Return] 28, 0x068f9ae66a26219deba829c8d7e5a1f7e8ff67435d16b66ba2cd1b94e30bb31a, 0x6fdd027f7dc53377b8035f2686371c7f79bc3d3b1b5f6cafc7de6e8d139b83cb
+    ├─ [182891] Scrabble::createGame(1000000 [1e6], 0x0000000000000000000000000000000000000000, 0x068f9ae66a26219deba829c8d7e5a1f7e8ff67435d16b66ba2cd1b94e30bb31a6fdd027f7dc53377b8035f2686371c7f79bc3d3b1b5f6cafc7de6e8d139b83cb1c)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0x5ff3f709496da2744dac789f0199aac19154ad7878ac04bfeb2bb8603157a2d0, 28, 2967605302666835711241110549620277640773261478659394515682023218943590380314, 50597216634709672618880790590578752418620252915528376090138519582632933295051) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [2445] Wallet::getBalance(0xBACEDb593F4d29A416935c91a45325E6c30F0C37, 0x0000000000000000000000000000000000000000) [staticcall]
+    │   │   └─ ← [Return] 1000000015000000 [1e15]
+    │   ├─ [12126] Wallet::deductFunds(0xBACEDb593F4d29A416935c91a45325E6c30F0C37, 0x0000000000000000000000000000000000000000, 1000000 [1e6])
+    │   │   ├─ emit FundsTransferredToGame(user: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, token: 0x0000000000000000000000000000000000000000, amount: 1000000 [1e6])
+    │   │   └─ ← [Return] true
+    │   ├─ emit GameCreated(gameId: 6, player: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, token: 0x0000000000000000000000000000000000000000, stake: 1000000 [1e6])
+    │   └─ ← [Return] 6
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(6) [staticcall]
+    │   └─ ← [Return] "6"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(6) [staticcall]
+    │   └─ ← [Return] "6"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 6 | Action: createGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2
+    ├─ [0] console::log("Joining game with player2:", 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2163] Scrabble::getDigest(0x77273460510286bf173f61bc7de33dc756ff9d1702a03c0dfb882eacb0a49f80) [staticcall]
+    │   └─ ← [Return] 0x7484440f7d02701dc4a5f726119801ce64425b897cf855246375716eb7f9f638
+    ├─ [0] VM::sign("<pk>", 0x7484440f7d02701dc4a5f726119801ce64425b897cf855246375716eb7f9f638) [staticcall]
+    │   └─ ← [Return] 28, 0x59b8cb085196054e0b4a294952bb1b3ebaa22ae1076faec322e100bf5714fb27, 0x5e6dbf9d29bf9049780a9b6becc3959fdf9c72f2b5c67b636311458810c6414f
+    ├─ [57024] Scrabble::joinGame(6, 1000000 [1e6], 0x59b8cb085196054e0b4a294952bb1b3ebaa22ae1076faec322e100bf5714fb275e6dbf9d29bf9049780a9b6becc3959fdf9c72f2b5c67b636311458810c6414f1c)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0x7484440f7d02701dc4a5f726119801ce64425b897cf855246375716eb7f9f638, 28, 40582344662609913674156801068216180260865689815096439658535748148000325958439, 42711316567548356800624037905797421347672505169042455949770782155681852440911) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [12126] Wallet::deductFunds(0x8bDe282b72373487CDb6637418A3e80DcDEe62b2, 0x0000000000000000000000000000000000000000, 1000000 [1e6])
+    │   │   ├─ emit FundsTransferredToGame(user: 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2, token: 0x0000000000000000000000000000000000000000, amount: 1000000 [1e6])
+    │   │   └─ ← [Return] true
+    │   ├─ emit GameJoined(gameId: 6, player: 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2, stake: 1000000 [1e6])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(6) [staticcall]
+    │   └─ ← [Return] "6"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(6) [staticcall]
+    │   └─ ← [Return] "6"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 6 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c
+    ├─ [0] console::log("Joining game with player3:", 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2163] Scrabble::getDigest(0xe99b6f2d4e02ba6761312e5d860061e993945a663f12ecb21359a560808a7a78) [staticcall]
+    │   └─ ← [Return] 0xc1e4b08d58bcf7040f0a911e7cdca748c7a8c51929dfc3153a382ae70995cb7b
+    ├─ [0] VM::sign("<pk>", 0xc1e4b08d58bcf7040f0a911e7cdca748c7a8c51929dfc3153a382ae70995cb7b) [staticcall]
+    │   └─ ← [Return] 27, 0x1deee1e3523977ee0d2120d26cb136dff4d58925e6a033882b5dfa26b27adaf5, 0x774c5bf748e2b09418d1c34f0fb8fd172e602e7e2670f7580a227c4aea520dea
+    ├─ [58027] Scrabble::joinGame(6, 1000000 [1e6], 0x1deee1e3523977ee0d2120d26cb136dff4d58925e6a033882b5dfa26b27adaf5774c5bf748e2b09418d1c34f0fb8fd172e602e7e2670f7580a227c4aea520dea1b)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0xc1e4b08d58bcf7040f0a911e7cdca748c7a8c51929dfc3153a382ae70995cb7b, 27, 13539141231827151129977560122086897267748617168613097958635821798191370263285, 53960144084031981911326773105779214510212440485558547113837396404545212517866) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [12126] Wallet::deductFunds(0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c, 0x0000000000000000000000000000000000000000, 1000000 [1e6])
+    │   │   ├─ emit FundsTransferredToGame(user: 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c, token: 0x0000000000000000000000000000000000000000, amount: 1000000 [1e6])
+    │   │   └─ ← [Return] true
+    │   ├─ emit GameJoined(gameId: 6, player: 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c, stake: 1000000 [1e6])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(6) [staticcall]
+    │   └─ ← [Return] "6"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(6) [staticcall]
+    │   └─ ← [Return] "6"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 6 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99
+    ├─ [0] console::log("Joining game with player4:", 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2163] Scrabble::getDigest(0xe754c1e3b91ec0a5b704258581097b5efe0458e61ee23d0da3ab1eb9fb9ad0dc) [staticcall]
+    │   └─ ← [Return] 0x3b85bd1817dc524d77874246291b4be9c1dc67ec2b2c0817a56ca1d22cd02915
+    ├─ [0] VM::sign("<pk>", 0x3b85bd1817dc524d77874246291b4be9c1dc67ec2b2c0817a56ca1d22cd02915) [staticcall]
+    │   └─ ← [Return] 27, 0x03a32d97fa0c80f0784e0a29de8f7e9b507a2d22ddb78eea8d4101b753e76783, 0x7ba3b071ea5a58c610869b68d24b6141e77a51c6102da21df2e1a653da52ffae
+    ├─ [59030] Scrabble::joinGame(6, 1000000 [1e6], 0x03a32d97fa0c80f0784e0a29de8f7e9b507a2d22ddb78eea8d4101b753e767837ba3b071ea5a58c610869b68d24b6141e77a51c6102da21df2e1a653da52ffae1b)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0x3b85bd1817dc524d77874246291b4be9c1dc67ec2b2c0817a56ca1d22cd02915, 27, 1645249293179444754294301624949944765143603522041621934315533894160010930051, 55923694225811893699691193385585051780541301626537339433944874003286258286510) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [12126] Wallet::deductFunds(0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99, 0x0000000000000000000000000000000000000000, 1000000 [1e6])
+    │   │   ├─ emit FundsTransferredToGame(user: 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99, token: 0x0000000000000000000000000000000000000000, amount: 1000000 [1e6])
+    │   │   └─ ← [Return] true
+    │   ├─ emit GameJoined(gameId: 6, player: 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99, stake: 1000000 [1e6])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(6) [staticcall]
+    │   └─ ← [Return] "6"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(6) [staticcall]
+    │   └─ ← [Return] "6"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 6 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6
+    ├─ [0] console::log("Submitting result with submitter:", 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [98498] Scrabble::submitResult(6, 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, 0x0000000000000000000000000000000000000000000000000000000000000000, [100, 90, 0, 70], 0)
+    │   ├─ [11487] Wallet::addWinnings(0xBACEDb593F4d29A416935c91a45325E6c30F0C37, 0x0000000000000000000000000000000000000000, 4000000 [4e6])
+    │   │   ├─ emit FundsReceivedFromGame(user: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, token: 0x0000000000000000000000000000000000000000, amount: 4000000 [4e6])
+    │   │   └─ ← [Return]
+    │   ├─ emit GameSettled(gameId: 6, winner: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, payout: 4000000 [4e6], finalBoardHash: 0x0000000000000000000000000000000000000000000000000000000000000000, scores: [100, 90, 0, 70])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(6) [staticcall]
+    │   └─ ← [Return] "6"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(6) [staticcall]
+    │   └─ ← [Return] "6"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 6 | Action: submitResult | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0xBACEDb593F4d29A416935c91a45325E6c30F0C37
+    ├─ [0] console::log("Creating game with player1:", 0xBACEDb593F4d29A416935c91a45325E6c30F0C37) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2163] Scrabble::getDigest(0x3c6467e9a5f8b2a40f219b789ca1e52f9949fec501eb21ce1b093f971ccbb8fb) [staticcall]
+    │   └─ ← [Return] 0x5ff3f709496da2744dac789f0199aac19154ad7878ac04bfeb2bb8603157a2d0
+    ├─ [0] VM::sign("<pk>", 0x5ff3f709496da2744dac789f0199aac19154ad7878ac04bfeb2bb8603157a2d0) [staticcall]
+    │   └─ ← [Return] 28, 0x068f9ae66a26219deba829c8d7e5a1f7e8ff67435d16b66ba2cd1b94e30bb31a, 0x6fdd027f7dc53377b8035f2686371c7f79bc3d3b1b5f6cafc7de6e8d139b83cb
+    ├─ [182891] Scrabble::createGame(1000000 [1e6], 0x0000000000000000000000000000000000000000, 0x068f9ae66a26219deba829c8d7e5a1f7e8ff67435d16b66ba2cd1b94e30bb31a6fdd027f7dc53377b8035f2686371c7f79bc3d3b1b5f6cafc7de6e8d139b83cb1c)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0x5ff3f709496da2744dac789f0199aac19154ad7878ac04bfeb2bb8603157a2d0, 28, 2967605302666835711241110549620277640773261478659394515682023218943590380314, 50597216634709672618880790590578752418620252915528376090138519582632933295051) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [2445] Wallet::getBalance(0xBACEDb593F4d29A416935c91a45325E6c30F0C37, 0x0000000000000000000000000000000000000000) [staticcall]
+    │   │   └─ ← [Return] 1000000018000000 [1e15]
+    │   ├─ [12126] Wallet::deductFunds(0xBACEDb593F4d29A416935c91a45325E6c30F0C37, 0x0000000000000000000000000000000000000000, 1000000 [1e6])
+    │   │   ├─ emit FundsTransferredToGame(user: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, token: 0x0000000000000000000000000000000000000000, amount: 1000000 [1e6])
+    │   │   └─ ← [Return] true
+    │   ├─ emit GameCreated(gameId: 7, player: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, token: 0x0000000000000000000000000000000000000000, stake: 1000000 [1e6])
+    │   └─ ← [Return] 7
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(7) [staticcall]
+    │   └─ ← [Return] "7"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(7) [staticcall]
+    │   └─ ← [Return] "7"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 7 | Action: createGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2
+    ├─ [0] console::log("Joining game with player2:", 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2163] Scrabble::getDigest(0x77273460510286bf173f61bc7de33dc756ff9d1702a03c0dfb882eacb0a49f80) [staticcall]
+    │   └─ ← [Return] 0x7484440f7d02701dc4a5f726119801ce64425b897cf855246375716eb7f9f638
+    ├─ [0] VM::sign("<pk>", 0x7484440f7d02701dc4a5f726119801ce64425b897cf855246375716eb7f9f638) [staticcall]
+    │   └─ ← [Return] 28, 0x59b8cb085196054e0b4a294952bb1b3ebaa22ae1076faec322e100bf5714fb27, 0x5e6dbf9d29bf9049780a9b6becc3959fdf9c72f2b5c67b636311458810c6414f
+    ├─ [57024] Scrabble::joinGame(7, 1000000 [1e6], 0x59b8cb085196054e0b4a294952bb1b3ebaa22ae1076faec322e100bf5714fb275e6dbf9d29bf9049780a9b6becc3959fdf9c72f2b5c67b636311458810c6414f1c)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0x7484440f7d02701dc4a5f726119801ce64425b897cf855246375716eb7f9f638, 28, 40582344662609913674156801068216180260865689815096439658535748148000325958439, 42711316567548356800624037905797421347672505169042455949770782155681852440911) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [12126] Wallet::deductFunds(0x8bDe282b72373487CDb6637418A3e80DcDEe62b2, 0x0000000000000000000000000000000000000000, 1000000 [1e6])
+    │   │   ├─ emit FundsTransferredToGame(user: 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2, token: 0x0000000000000000000000000000000000000000, amount: 1000000 [1e6])
+    │   │   └─ ← [Return] true
+    │   ├─ emit GameJoined(gameId: 7, player: 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2, stake: 1000000 [1e6])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(7) [staticcall]
+    │   └─ ← [Return] "7"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(7) [staticcall]
+    │   └─ ← [Return] "7"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 7 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c
+    ├─ [0] console::log("Joining game with player3:", 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2163] Scrabble::getDigest(0xe99b6f2d4e02ba6761312e5d860061e993945a663f12ecb21359a560808a7a78) [staticcall]
+    │   └─ ← [Return] 0xc1e4b08d58bcf7040f0a911e7cdca748c7a8c51929dfc3153a382ae70995cb7b
+    ├─ [0] VM::sign("<pk>", 0xc1e4b08d58bcf7040f0a911e7cdca748c7a8c51929dfc3153a382ae70995cb7b) [staticcall]
+    │   └─ ← [Return] 27, 0x1deee1e3523977ee0d2120d26cb136dff4d58925e6a033882b5dfa26b27adaf5, 0x774c5bf748e2b09418d1c34f0fb8fd172e602e7e2670f7580a227c4aea520dea
+    ├─ [58027] Scrabble::joinGame(7, 1000000 [1e6], 0x1deee1e3523977ee0d2120d26cb136dff4d58925e6a033882b5dfa26b27adaf5774c5bf748e2b09418d1c34f0fb8fd172e602e7e2670f7580a227c4aea520dea1b)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0xc1e4b08d58bcf7040f0a911e7cdca748c7a8c51929dfc3153a382ae70995cb7b, 27, 13539141231827151129977560122086897267748617168613097958635821798191370263285, 53960144084031981911326773105779214510212440485558547113837396404545212517866) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [12126] Wallet::deductFunds(0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c, 0x0000000000000000000000000000000000000000, 1000000 [1e6])
+    │   │   ├─ emit FundsTransferredToGame(user: 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c, token: 0x0000000000000000000000000000000000000000, amount: 1000000 [1e6])
+    │   │   └─ ← [Return] true
+    │   ├─ emit GameJoined(gameId: 7, player: 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c, stake: 1000000 [1e6])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(7) [staticcall]
+    │   └─ ← [Return] "7"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(7) [staticcall]
+    │   └─ ← [Return] "7"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 7 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99
+    ├─ [0] console::log("Joining game with player4:", 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2163] Scrabble::getDigest(0xe754c1e3b91ec0a5b704258581097b5efe0458e61ee23d0da3ab1eb9fb9ad0dc) [staticcall]
+    │   └─ ← [Return] 0x3b85bd1817dc524d77874246291b4be9c1dc67ec2b2c0817a56ca1d22cd02915
+    ├─ [0] VM::sign("<pk>", 0x3b85bd1817dc524d77874246291b4be9c1dc67ec2b2c0817a56ca1d22cd02915) [staticcall]
+    │   └─ ← [Return] 27, 0x03a32d97fa0c80f0784e0a29de8f7e9b507a2d22ddb78eea8d4101b753e76783, 0x7ba3b071ea5a58c610869b68d24b6141e77a51c6102da21df2e1a653da52ffae
+    ├─ [59030] Scrabble::joinGame(7, 1000000 [1e6], 0x03a32d97fa0c80f0784e0a29de8f7e9b507a2d22ddb78eea8d4101b753e767837ba3b071ea5a58c610869b68d24b6141e77a51c6102da21df2e1a653da52ffae1b)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0x3b85bd1817dc524d77874246291b4be9c1dc67ec2b2c0817a56ca1d22cd02915, 27, 1645249293179444754294301624949944765143603522041621934315533894160010930051, 55923694225811893699691193385585051780541301626537339433944874003286258286510) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [12126] Wallet::deductFunds(0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99, 0x0000000000000000000000000000000000000000, 1000000 [1e6])
+    │   │   ├─ emit FundsTransferredToGame(user: 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99, token: 0x0000000000000000000000000000000000000000, amount: 1000000 [1e6])
+    │   │   └─ ← [Return] true
+    │   ├─ emit GameJoined(gameId: 7, player: 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99, stake: 1000000 [1e6])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(7) [staticcall]
+    │   └─ ← [Return] "7"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(7) [staticcall]
+    │   └─ ← [Return] "7"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 7 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6
+    ├─ [0] console::log("Submitting result with submitter:", 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [98498] Scrabble::submitResult(7, 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, 0x0000000000000000000000000000000000000000000000000000000000000000, [100, 90, 0, 70], 0)
+    │   ├─ [11487] Wallet::addWinnings(0xBACEDb593F4d29A416935c91a45325E6c30F0C37, 0x0000000000000000000000000000000000000000, 4000000 [4e6])
+    │   │   ├─ emit FundsReceivedFromGame(user: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, token: 0x0000000000000000000000000000000000000000, amount: 4000000 [4e6])
+    │   │   └─ ← [Return]
+    │   ├─ emit GameSettled(gameId: 7, winner: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, payout: 4000000 [4e6], finalBoardHash: 0x0000000000000000000000000000000000000000000000000000000000000000, scores: [100, 90, 0, 70])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(7) [staticcall]
+    │   └─ ← [Return] "7"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(7) [staticcall]
+    │   └─ ← [Return] "7"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 7 | Action: submitResult | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0xBACEDb593F4d29A416935c91a45325E6c30F0C37
+    ├─ [0] console::log("Creating game with player1:", 0xBACEDb593F4d29A416935c91a45325E6c30F0C37) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2163] Scrabble::getDigest(0x3c6467e9a5f8b2a40f219b789ca1e52f9949fec501eb21ce1b093f971ccbb8fb) [staticcall]
+    │   └─ ← [Return] 0x5ff3f709496da2744dac789f0199aac19154ad7878ac04bfeb2bb8603157a2d0
+    ├─ [0] VM::sign("<pk>", 0x5ff3f709496da2744dac789f0199aac19154ad7878ac04bfeb2bb8603157a2d0) [staticcall]
+    │   └─ ← [Return] 28, 0x068f9ae66a26219deba829c8d7e5a1f7e8ff67435d16b66ba2cd1b94e30bb31a, 0x6fdd027f7dc53377b8035f2686371c7f79bc3d3b1b5f6cafc7de6e8d139b83cb
+    ├─ [182891] Scrabble::createGame(1000000 [1e6], 0x0000000000000000000000000000000000000000, 0x068f9ae66a26219deba829c8d7e5a1f7e8ff67435d16b66ba2cd1b94e30bb31a6fdd027f7dc53377b8035f2686371c7f79bc3d3b1b5f6cafc7de6e8d139b83cb1c)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0x5ff3f709496da2744dac789f0199aac19154ad7878ac04bfeb2bb8603157a2d0, 28, 2967605302666835711241110549620277640773261478659394515682023218943590380314, 50597216634709672618880790590578752418620252915528376090138519582632933295051) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [2445] Wallet::getBalance(0xBACEDb593F4d29A416935c91a45325E6c30F0C37, 0x0000000000000000000000000000000000000000) [staticcall]
+    │   │   └─ ← [Return] 1000000021000000 [1e15]
+    │   ├─ [12126] Wallet::deductFunds(0xBACEDb593F4d29A416935c91a45325E6c30F0C37, 0x0000000000000000000000000000000000000000, 1000000 [1e6])
+    │   │   ├─ emit FundsTransferredToGame(user: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, token: 0x0000000000000000000000000000000000000000, amount: 1000000 [1e6])
+    │   │   └─ ← [Return] true
+    │   ├─ emit GameCreated(gameId: 8, player: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, token: 0x0000000000000000000000000000000000000000, stake: 1000000 [1e6])
+    │   └─ ← [Return] 8
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(8) [staticcall]
+    │   └─ ← [Return] "8"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(8) [staticcall]
+    │   └─ ← [Return] "8"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 8 | Action: createGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2
+    ├─ [0] console::log("Joining game with player2:", 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2163] Scrabble::getDigest(0x77273460510286bf173f61bc7de33dc756ff9d1702a03c0dfb882eacb0a49f80) [staticcall]
+    │   └─ ← [Return] 0x7484440f7d02701dc4a5f726119801ce64425b897cf855246375716eb7f9f638
+    ├─ [0] VM::sign("<pk>", 0x7484440f7d02701dc4a5f726119801ce64425b897cf855246375716eb7f9f638) [staticcall]
+    │   └─ ← [Return] 28, 0x59b8cb085196054e0b4a294952bb1b3ebaa22ae1076faec322e100bf5714fb27, 0x5e6dbf9d29bf9049780a9b6becc3959fdf9c72f2b5c67b636311458810c6414f
+    ├─ [57024] Scrabble::joinGame(8, 1000000 [1e6], 0x59b8cb085196054e0b4a294952bb1b3ebaa22ae1076faec322e100bf5714fb275e6dbf9d29bf9049780a9b6becc3959fdf9c72f2b5c67b636311458810c6414f1c)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0x7484440f7d02701dc4a5f726119801ce64425b897cf855246375716eb7f9f638, 28, 40582344662609913674156801068216180260865689815096439658535748148000325958439, 42711316567548356800624037905797421347672505169042455949770782155681852440911) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [12126] Wallet::deductFunds(0x8bDe282b72373487CDb6637418A3e80DcDEe62b2, 0x0000000000000000000000000000000000000000, 1000000 [1e6])
+    │   │   ├─ emit FundsTransferredToGame(user: 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2, token: 0x0000000000000000000000000000000000000000, amount: 1000000 [1e6])
+    │   │   └─ ← [Return] true
+    │   ├─ emit GameJoined(gameId: 8, player: 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2, stake: 1000000 [1e6])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(8) [staticcall]
+    │   └─ ← [Return] "8"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(8) [staticcall]
+    │   └─ ← [Return] "8"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 8 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c
+    ├─ [0] console::log("Joining game with player3:", 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2163] Scrabble::getDigest(0xe99b6f2d4e02ba6761312e5d860061e993945a663f12ecb21359a560808a7a78) [staticcall]
+    │   └─ ← [Return] 0xc1e4b08d58bcf7040f0a911e7cdca748c7a8c51929dfc3153a382ae70995cb7b
+    ├─ [0] VM::sign("<pk>", 0xc1e4b08d58bcf7040f0a911e7cdca748c7a8c51929dfc3153a382ae70995cb7b) [staticcall]
+    │   └─ ← [Return] 27, 0x1deee1e3523977ee0d2120d26cb136dff4d58925e6a033882b5dfa26b27adaf5, 0x774c5bf748e2b09418d1c34f0fb8fd172e602e7e2670f7580a227c4aea520dea
+    ├─ [58027] Scrabble::joinGame(8, 1000000 [1e6], 0x1deee1e3523977ee0d2120d26cb136dff4d58925e6a033882b5dfa26b27adaf5774c5bf748e2b09418d1c34f0fb8fd172e602e7e2670f7580a227c4aea520dea1b)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0xc1e4b08d58bcf7040f0a911e7cdca748c7a8c51929dfc3153a382ae70995cb7b, 27, 13539141231827151129977560122086897267748617168613097958635821798191370263285, 53960144084031981911326773105779214510212440485558547113837396404545212517866) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [12126] Wallet::deductFunds(0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c, 0x0000000000000000000000000000000000000000, 1000000 [1e6])
+    │   │   ├─ emit FundsTransferredToGame(user: 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c, token: 0x0000000000000000000000000000000000000000, amount: 1000000 [1e6])
+    │   │   └─ ← [Return] true
+    │   ├─ emit GameJoined(gameId: 8, player: 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c, stake: 1000000 [1e6])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(8) [staticcall]
+    │   └─ ← [Return] "8"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(8) [staticcall]
+    │   └─ ← [Return] "8"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 8 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99
+    ├─ [0] console::log("Joining game with player4:", 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2163] Scrabble::getDigest(0xe754c1e3b91ec0a5b704258581097b5efe0458e61ee23d0da3ab1eb9fb9ad0dc) [staticcall]
+    │   └─ ← [Return] 0x3b85bd1817dc524d77874246291b4be9c1dc67ec2b2c0817a56ca1d22cd02915
+    ├─ [0] VM::sign("<pk>", 0x3b85bd1817dc524d77874246291b4be9c1dc67ec2b2c0817a56ca1d22cd02915) [staticcall]
+    │   └─ ← [Return] 27, 0x03a32d97fa0c80f0784e0a29de8f7e9b507a2d22ddb78eea8d4101b753e76783, 0x7ba3b071ea5a58c610869b68d24b6141e77a51c6102da21df2e1a653da52ffae
+    ├─ [59030] Scrabble::joinGame(8, 1000000 [1e6], 0x03a32d97fa0c80f0784e0a29de8f7e9b507a2d22ddb78eea8d4101b753e767837ba3b071ea5a58c610869b68d24b6141e77a51c6102da21df2e1a653da52ffae1b)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0x3b85bd1817dc524d77874246291b4be9c1dc67ec2b2c0817a56ca1d22cd02915, 27, 1645249293179444754294301624949944765143603522041621934315533894160010930051, 55923694225811893699691193385585051780541301626537339433944874003286258286510) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [12126] Wallet::deductFunds(0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99, 0x0000000000000000000000000000000000000000, 1000000 [1e6])
+    │   │   ├─ emit FundsTransferredToGame(user: 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99, token: 0x0000000000000000000000000000000000000000, amount: 1000000 [1e6])
+    │   │   └─ ← [Return] true
+    │   ├─ emit GameJoined(gameId: 8, player: 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99, stake: 1000000 [1e6])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(8) [staticcall]
+    │   └─ ← [Return] "8"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(8) [staticcall]
+    │   └─ ← [Return] "8"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 8 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6
+    ├─ [0] console::log("Submitting result with submitter:", 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [98498] Scrabble::submitResult(8, 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, 0x0000000000000000000000000000000000000000000000000000000000000000, [100, 90, 0, 70], 0)
+    │   ├─ [11487] Wallet::addWinnings(0xBACEDb593F4d29A416935c91a45325E6c30F0C37, 0x0000000000000000000000000000000000000000, 4000000 [4e6])
+    │   │   ├─ emit FundsReceivedFromGame(user: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, token: 0x0000000000000000000000000000000000000000, amount: 4000000 [4e6])
+    │   │   └─ ← [Return]
+    │   ├─ emit GameSettled(gameId: 8, winner: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, payout: 4000000 [4e6], finalBoardHash: 0x0000000000000000000000000000000000000000000000000000000000000000, scores: [100, 90, 0, 70])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(8) [staticcall]
+    │   └─ ← [Return] "8"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(8) [staticcall]
+    │   └─ ← [Return] "8"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 8 | Action: submitResult | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0xBACEDb593F4d29A416935c91a45325E6c30F0C37
+    ├─ [0] console::log("Creating game with player1:", 0xBACEDb593F4d29A416935c91a45325E6c30F0C37) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2163] Scrabble::getDigest(0x3c6467e9a5f8b2a40f219b789ca1e52f9949fec501eb21ce1b093f971ccbb8fb) [staticcall]
+    │   └─ ← [Return] 0x5ff3f709496da2744dac789f0199aac19154ad7878ac04bfeb2bb8603157a2d0
+    ├─ [0] VM::sign("<pk>", 0x5ff3f709496da2744dac789f0199aac19154ad7878ac04bfeb2bb8603157a2d0) [staticcall]
+    │   └─ ← [Return] 28, 0x068f9ae66a26219deba829c8d7e5a1f7e8ff67435d16b66ba2cd1b94e30bb31a, 0x6fdd027f7dc53377b8035f2686371c7f79bc3d3b1b5f6cafc7de6e8d139b83cb
+    ├─ [182891] Scrabble::createGame(1000000 [1e6], 0x0000000000000000000000000000000000000000, 0x068f9ae66a26219deba829c8d7e5a1f7e8ff67435d16b66ba2cd1b94e30bb31a6fdd027f7dc53377b8035f2686371c7f79bc3d3b1b5f6cafc7de6e8d139b83cb1c)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0x5ff3f709496da2744dac789f0199aac19154ad7878ac04bfeb2bb8603157a2d0, 28, 2967605302666835711241110549620277640773261478659394515682023218943590380314, 50597216634709672618880790590578752418620252915528376090138519582632933295051) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [2445] Wallet::getBalance(0xBACEDb593F4d29A416935c91a45325E6c30F0C37, 0x0000000000000000000000000000000000000000) [staticcall]
+    │   │   └─ ← [Return] 1000000024000000 [1e15]
+    │   ├─ [12126] Wallet::deductFunds(0xBACEDb593F4d29A416935c91a45325E6c30F0C37, 0x0000000000000000000000000000000000000000, 1000000 [1e6])
+    │   │   ├─ emit FundsTransferredToGame(user: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, token: 0x0000000000000000000000000000000000000000, amount: 1000000 [1e6])
+    │   │   └─ ← [Return] true
+    │   ├─ emit GameCreated(gameId: 9, player: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, token: 0x0000000000000000000000000000000000000000, stake: 1000000 [1e6])
+    │   └─ ← [Return] 9
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(9) [staticcall]
+    │   └─ ← [Return] "9"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(9) [staticcall]
+    │   └─ ← [Return] "9"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 9 | Action: createGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2
+    ├─ [0] console::log("Joining game with player2:", 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2163] Scrabble::getDigest(0x77273460510286bf173f61bc7de33dc756ff9d1702a03c0dfb882eacb0a49f80) [staticcall]
+    │   └─ ← [Return] 0x7484440f7d02701dc4a5f726119801ce64425b897cf855246375716eb7f9f638
+    ├─ [0] VM::sign("<pk>", 0x7484440f7d02701dc4a5f726119801ce64425b897cf855246375716eb7f9f638) [staticcall]
+    │   └─ ← [Return] 28, 0x59b8cb085196054e0b4a294952bb1b3ebaa22ae1076faec322e100bf5714fb27, 0x5e6dbf9d29bf9049780a9b6becc3959fdf9c72f2b5c67b636311458810c6414f
+    ├─ [57024] Scrabble::joinGame(9, 1000000 [1e6], 0x59b8cb085196054e0b4a294952bb1b3ebaa22ae1076faec322e100bf5714fb275e6dbf9d29bf9049780a9b6becc3959fdf9c72f2b5c67b636311458810c6414f1c)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0x7484440f7d02701dc4a5f726119801ce64425b897cf855246375716eb7f9f638, 28, 40582344662609913674156801068216180260865689815096439658535748148000325958439, 42711316567548356800624037905797421347672505169042455949770782155681852440911) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [12126] Wallet::deductFunds(0x8bDe282b72373487CDb6637418A3e80DcDEe62b2, 0x0000000000000000000000000000000000000000, 1000000 [1e6])
+    │   │   ├─ emit FundsTransferredToGame(user: 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2, token: 0x0000000000000000000000000000000000000000, amount: 1000000 [1e6])
+    │   │   └─ ← [Return] true
+    │   ├─ emit GameJoined(gameId: 9, player: 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2, stake: 1000000 [1e6])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(9) [staticcall]
+    │   └─ ← [Return] "9"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(9) [staticcall]
+    │   └─ ← [Return] "9"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 9 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c
+    ├─ [0] console::log("Joining game with player3:", 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2163] Scrabble::getDigest(0xe99b6f2d4e02ba6761312e5d860061e993945a663f12ecb21359a560808a7a78) [staticcall]
+    │   └─ ← [Return] 0xc1e4b08d58bcf7040f0a911e7cdca748c7a8c51929dfc3153a382ae70995cb7b
+    ├─ [0] VM::sign("<pk>", 0xc1e4b08d58bcf7040f0a911e7cdca748c7a8c51929dfc3153a382ae70995cb7b) [staticcall]
+    │   └─ ← [Return] 27, 0x1deee1e3523977ee0d2120d26cb136dff4d58925e6a033882b5dfa26b27adaf5, 0x774c5bf748e2b09418d1c34f0fb8fd172e602e7e2670f7580a227c4aea520dea
+    ├─ [58027] Scrabble::joinGame(9, 1000000 [1e6], 0x1deee1e3523977ee0d2120d26cb136dff4d58925e6a033882b5dfa26b27adaf5774c5bf748e2b09418d1c34f0fb8fd172e602e7e2670f7580a227c4aea520dea1b)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0xc1e4b08d58bcf7040f0a911e7cdca748c7a8c51929dfc3153a382ae70995cb7b, 27, 13539141231827151129977560122086897267748617168613097958635821798191370263285, 53960144084031981911326773105779214510212440485558547113837396404545212517866) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [12126] Wallet::deductFunds(0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c, 0x0000000000000000000000000000000000000000, 1000000 [1e6])
+    │   │   ├─ emit FundsTransferredToGame(user: 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c, token: 0x0000000000000000000000000000000000000000, amount: 1000000 [1e6])
+    │   │   └─ ← [Return] true
+    │   ├─ emit GameJoined(gameId: 9, player: 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c, stake: 1000000 [1e6])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(9) [staticcall]
+    │   └─ ← [Return] "9"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(9) [staticcall]
+    │   └─ ← [Return] "9"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 9 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99
+    ├─ [0] console::log("Joining game with player4:", 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2163] Scrabble::getDigest(0xe754c1e3b91ec0a5b704258581097b5efe0458e61ee23d0da3ab1eb9fb9ad0dc) [staticcall]
+    │   └─ ← [Return] 0x3b85bd1817dc524d77874246291b4be9c1dc67ec2b2c0817a56ca1d22cd02915
+    ├─ [0] VM::sign("<pk>", 0x3b85bd1817dc524d77874246291b4be9c1dc67ec2b2c0817a56ca1d22cd02915) [staticcall]
+    │   └─ ← [Return] 27, 0x03a32d97fa0c80f0784e0a29de8f7e9b507a2d22ddb78eea8d4101b753e76783, 0x7ba3b071ea5a58c610869b68d24b6141e77a51c6102da21df2e1a653da52ffae
+    ├─ [59030] Scrabble::joinGame(9, 1000000 [1e6], 0x03a32d97fa0c80f0784e0a29de8f7e9b507a2d22ddb78eea8d4101b753e767837ba3b071ea5a58c610869b68d24b6141e77a51c6102da21df2e1a653da52ffae1b)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0x3b85bd1817dc524d77874246291b4be9c1dc67ec2b2c0817a56ca1d22cd02915, 27, 1645249293179444754294301624949944765143603522041621934315533894160010930051, 55923694225811893699691193385585051780541301626537339433944874003286258286510) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [12126] Wallet::deductFunds(0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99, 0x0000000000000000000000000000000000000000, 1000000 [1e6])
+    │   │   ├─ emit FundsTransferredToGame(user: 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99, token: 0x0000000000000000000000000000000000000000, amount: 1000000 [1e6])
+    │   │   └─ ← [Return] true
+    │   ├─ emit GameJoined(gameId: 9, player: 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99, stake: 1000000 [1e6])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(9) [staticcall]
+    │   └─ ← [Return] "9"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(9) [staticcall]
+    │   └─ ← [Return] "9"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 9 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6
+    ├─ [0] console::log("Submitting result with submitter:", 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [98498] Scrabble::submitResult(9, 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, 0x0000000000000000000000000000000000000000000000000000000000000000, [100, 90, 0, 70], 0)
+    │   ├─ [11487] Wallet::addWinnings(0xBACEDb593F4d29A416935c91a45325E6c30F0C37, 0x0000000000000000000000000000000000000000, 4000000 [4e6])
+    │   │   ├─ emit FundsReceivedFromGame(user: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, token: 0x0000000000000000000000000000000000000000, amount: 4000000 [4e6])
+    │   │   └─ ← [Return]
+    │   ├─ emit GameSettled(gameId: 9, winner: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, payout: 4000000 [4e6], finalBoardHash: 0x0000000000000000000000000000000000000000000000000000000000000000, scores: [100, 90, 0, 70])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(9) [staticcall]
+    │   └─ ← [Return] "9"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(9) [staticcall]
+    │   └─ ← [Return] "9"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 9 | Action: submitResult | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0xBACEDb593F4d29A416935c91a45325E6c30F0C37
+    ├─ [0] console::log("Creating game with player1:", 0xBACEDb593F4d29A416935c91a45325E6c30F0C37) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2163] Scrabble::getDigest(0x3c6467e9a5f8b2a40f219b789ca1e52f9949fec501eb21ce1b093f971ccbb8fb) [staticcall]
+    │   └─ ← [Return] 0x5ff3f709496da2744dac789f0199aac19154ad7878ac04bfeb2bb8603157a2d0
+    ├─ [0] VM::sign("<pk>", 0x5ff3f709496da2744dac789f0199aac19154ad7878ac04bfeb2bb8603157a2d0) [staticcall]
+    │   └─ ← [Return] 28, 0x068f9ae66a26219deba829c8d7e5a1f7e8ff67435d16b66ba2cd1b94e30bb31a, 0x6fdd027f7dc53377b8035f2686371c7f79bc3d3b1b5f6cafc7de6e8d139b83cb
+    ├─ [182891] Scrabble::createGame(1000000 [1e6], 0x0000000000000000000000000000000000000000, 0x068f9ae66a26219deba829c8d7e5a1f7e8ff67435d16b66ba2cd1b94e30bb31a6fdd027f7dc53377b8035f2686371c7f79bc3d3b1b5f6cafc7de6e8d139b83cb1c)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0x5ff3f709496da2744dac789f0199aac19154ad7878ac04bfeb2bb8603157a2d0, 28, 2967605302666835711241110549620277640773261478659394515682023218943590380314, 50597216634709672618880790590578752418620252915528376090138519582632933295051) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [2445] Wallet::getBalance(0xBACEDb593F4d29A416935c91a45325E6c30F0C37, 0x0000000000000000000000000000000000000000) [staticcall]
+    │   │   └─ ← [Return] 1000000027000000 [1e15]
+    │   ├─ [12126] Wallet::deductFunds(0xBACEDb593F4d29A416935c91a45325E6c30F0C37, 0x0000000000000000000000000000000000000000, 1000000 [1e6])
+    │   │   ├─ emit FundsTransferredToGame(user: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, token: 0x0000000000000000000000000000000000000000, amount: 1000000 [1e6])
+    │   │   └─ ← [Return] true
+    │   ├─ emit GameCreated(gameId: 10, player: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, token: 0x0000000000000000000000000000000000000000, stake: 1000000 [1e6])
+    │   └─ ← [Return] 10
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(10) [staticcall]
+    │   └─ ← [Return] "10"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(10) [staticcall]
+    │   └─ ← [Return] "10"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 10 | Action: createGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2
+    ├─ [0] console::log("Joining game with player2:", 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2163] Scrabble::getDigest(0x77273460510286bf173f61bc7de33dc756ff9d1702a03c0dfb882eacb0a49f80) [staticcall]
+    │   └─ ← [Return] 0x7484440f7d02701dc4a5f726119801ce64425b897cf855246375716eb7f9f638
+    ├─ [0] VM::sign("<pk>", 0x7484440f7d02701dc4a5f726119801ce64425b897cf855246375716eb7f9f638) [staticcall]
+    │   └─ ← [Return] 28, 0x59b8cb085196054e0b4a294952bb1b3ebaa22ae1076faec322e100bf5714fb27, 0x5e6dbf9d29bf9049780a9b6becc3959fdf9c72f2b5c67b636311458810c6414f
+    ├─ [57024] Scrabble::joinGame(10, 1000000 [1e6], 0x59b8cb085196054e0b4a294952bb1b3ebaa22ae1076faec322e100bf5714fb275e6dbf9d29bf9049780a9b6becc3959fdf9c72f2b5c67b636311458810c6414f1c)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0x7484440f7d02701dc4a5f726119801ce64425b897cf855246375716eb7f9f638, 28, 40582344662609913674156801068216180260865689815096439658535748148000325958439, 42711316567548356800624037905797421347672505169042455949770782155681852440911) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [12126] Wallet::deductFunds(0x8bDe282b72373487CDb6637418A3e80DcDEe62b2, 0x0000000000000000000000000000000000000000, 1000000 [1e6])
+    │   │   ├─ emit FundsTransferredToGame(user: 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2, token: 0x0000000000000000000000000000000000000000, amount: 1000000 [1e6])
+    │   │   └─ ← [Return] true
+    │   ├─ emit GameJoined(gameId: 10, player: 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2, stake: 1000000 [1e6])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(10) [staticcall]
+    │   └─ ← [Return] "10"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(10) [staticcall]
+    │   └─ ← [Return] "10"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 10 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c
+    ├─ [0] console::log("Joining game with player3:", 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2163] Scrabble::getDigest(0xe99b6f2d4e02ba6761312e5d860061e993945a663f12ecb21359a560808a7a78) [staticcall]
+    │   └─ ← [Return] 0xc1e4b08d58bcf7040f0a911e7cdca748c7a8c51929dfc3153a382ae70995cb7b
+    ├─ [0] VM::sign("<pk>", 0xc1e4b08d58bcf7040f0a911e7cdca748c7a8c51929dfc3153a382ae70995cb7b) [staticcall]
+    │   └─ ← [Return] 27, 0x1deee1e3523977ee0d2120d26cb136dff4d58925e6a033882b5dfa26b27adaf5, 0x774c5bf748e2b09418d1c34f0fb8fd172e602e7e2670f7580a227c4aea520dea
+    ├─ [58027] Scrabble::joinGame(10, 1000000 [1e6], 0x1deee1e3523977ee0d2120d26cb136dff4d58925e6a033882b5dfa26b27adaf5774c5bf748e2b09418d1c34f0fb8fd172e602e7e2670f7580a227c4aea520dea1b)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0xc1e4b08d58bcf7040f0a911e7cdca748c7a8c51929dfc3153a382ae70995cb7b, 27, 13539141231827151129977560122086897267748617168613097958635821798191370263285, 53960144084031981911326773105779214510212440485558547113837396404545212517866) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [12126] Wallet::deductFunds(0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c, 0x0000000000000000000000000000000000000000, 1000000 [1e6])
+    │   │   ├─ emit FundsTransferredToGame(user: 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c, token: 0x0000000000000000000000000000000000000000, amount: 1000000 [1e6])
+    │   │   └─ ← [Return] true
+    │   ├─ emit GameJoined(gameId: 10, player: 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c, stake: 1000000 [1e6])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(10) [staticcall]
+    │   └─ ← [Return] "10"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(10) [staticcall]
+    │   └─ ← [Return] "10"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 10 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99
+    ├─ [0] console::log("Joining game with player4:", 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [2163] Scrabble::getDigest(0xe754c1e3b91ec0a5b704258581097b5efe0458e61ee23d0da3ab1eb9fb9ad0dc) [staticcall]
+    │   └─ ← [Return] 0x3b85bd1817dc524d77874246291b4be9c1dc67ec2b2c0817a56ca1d22cd02915
+    ├─ [0] VM::sign("<pk>", 0x3b85bd1817dc524d77874246291b4be9c1dc67ec2b2c0817a56ca1d22cd02915) [staticcall]
+    │   └─ ← [Return] 27, 0x03a32d97fa0c80f0784e0a29de8f7e9b507a2d22ddb78eea8d4101b753e76783, 0x7ba3b071ea5a58c610869b68d24b6141e77a51c6102da21df2e1a653da52ffae
+    ├─ [59030] Scrabble::joinGame(10, 1000000 [1e6], 0x03a32d97fa0c80f0784e0a29de8f7e9b507a2d22ddb78eea8d4101b753e767837ba3b071ea5a58c610869b68d24b6141e77a51c6102da21df2e1a653da52ffae1b)
+    │   ├─ [3000] PRECOMPILES::ecrecover(0x3b85bd1817dc524d77874246291b4be9c1dc67ec2b2c0817a56ca1d22cd02915, 27, 1645249293179444754294301624949944765143603522041621934315533894160010930051, 55923694225811893699691193385585051780541301626537339433944874003286258286510) [staticcall]
+    │   │   └─ ← [Return] 0x00000000000000000000000045630a7db07604f82a1d2ccf8509eb375b1826c6
+    │   ├─ [12126] Wallet::deductFunds(0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99, 0x0000000000000000000000000000000000000000, 1000000 [1e6])
+    │   │   ├─ emit FundsTransferredToGame(user: 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99, token: 0x0000000000000000000000000000000000000000, amount: 1000000 [1e6])
+    │   │   └─ ← [Return] true
+    │   ├─ emit GameJoined(gameId: 10, player: 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99, stake: 1000000 [1e6])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(10) [staticcall]
+    │   └─ ← [Return] "10"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(10) [staticcall]
+    │   └─ ← [Return] "10"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 10 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::startBroadcast(<pk>)
+    │   └─ ← [Return]
+    ├─ [0] VM::addr(<pk>) [staticcall]
+    │   └─ ← [Return] 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6
+    ├─ [0] console::log("Submitting result with submitter:", 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6) [staticcall]
+    │   └─ ← [Stop]
+    ├─ [98498] Scrabble::submitResult(10, 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, 0x0000000000000000000000000000000000000000000000000000000000000000, [100, 90, 0, 70], 0)
+    │   ├─ [11487] Wallet::addWinnings(0xBACEDb593F4d29A416935c91a45325E6c30F0C37, 0x0000000000000000000000000000000000000000, 4000000 [4e6])
+    │   │   ├─ emit FundsReceivedFromGame(user: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, token: 0x0000000000000000000000000000000000000000, amount: 4000000 [4e6])
+    │   │   └─ ← [Return]
+    │   ├─ emit GameSettled(gameId: 10, winner: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37, payout: 4000000 [4e6], finalBoardHash: 0x0000000000000000000000000000000000000000000000000000000000000000, scores: [100, 90, 0, 70])
+    │   └─ ← [Return]
+    ├─ [0] VM::stopBroadcast()
+    │   └─ ← [Return]
+    ├─ [0] VM::getNonce(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] 0
+    ├─ [0] VM::toString(10) [staticcall]
+    │   └─ ← [Return] "10"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] VM::toString(10) [staticcall]
+    │   └─ ← [Return] "10"
+    ├─ [0] VM::toString(DefaultSender: [0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38]) [staticcall]
+    │   └─ ← [Return] "0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38"
+    ├─ [0] VM::toString(0) [staticcall]
+    │   └─ ← [Return] "0"
+    ├─ [0] VM::toString(0x0000000000000000000000000000000000000000000000000000000000000000) [staticcall]
+    │   └─ ← [Return] "0x0000000000000000000000000000000000000000000000000000000000000000"
+    ├─ [0] console::log("Game: 10 | Action: submitResult | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] console::log("Batch processing complete.") [staticcall]
+    │   └─ ← [Stop]
+    ├─ [0] VM::writeFile("./txLogs.json", "[")
+    │   └─ ← [Revert] vm.writeFile: the path txLogs.json is not allowed to be accessed for write operations
+    └─ ← [Revert] vm.writeFile: the path txLogs.json is not allowed to be accessed for write operations
+
+
+
+== Logs ==
+  Deployer address: 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6
+  Backend signer address: 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6
+  Submitter address: 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6
+  Player1 address: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37
+  Player2 address: 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2
+  Player3 address: 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c
+  Player4 address: 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99
+  Starting batch game creation...
+  Scrabble: 0xf13D09eD3cbdD1C930d4de74808de1f33B6b3D4f
+  Wallet: 0x5aAdFB43eF8dAF45DD80F4676345b7676f1D70e3
+  Authorizing with deployer: 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6
+  Scrabble contract authorized
+  Game: 0 | Action: authorizeScrabbleContract | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Funding player wallets...
+  Funding player1: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37
+  Game: 0 | Action: depositETH_player1 | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Funding player2: 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2
+  Game: 0 | Action: depositETH_player2 | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Funding player3: 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c
+  Game: 0 | Action: depositETH_player3 | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Funding player4: 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99
+  Game: 0 | Action: depositETH_player4 | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  All players funded in wallet contract
+  ---- Processing Games 1 to 5 ----
+  Creating game with player1: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37
+  Game: 1 | Action: createGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Joining game with player2: 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2
+  Game: 1 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Joining game with player3: 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c
+  Game: 1 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Joining game with player4: 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99
+  Game: 1 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Submitting result with submitter: 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6
+  Game: 1 | Action: submitResult | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Creating game with player1: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37
+  Game: 2 | Action: createGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Joining game with player2: 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2
+  Game: 2 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Joining game with player3: 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c
+  Game: 2 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Joining game with player4: 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99
+  Game: 2 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Submitting result with submitter: 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6
+  Game: 2 | Action: submitResult | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Creating game with player1: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37
+  Game: 3 | Action: createGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Joining game with player2: 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2
+  Game: 3 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Joining game with player3: 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c
+  Game: 3 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Joining game with player4: 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99
+  Game: 3 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Submitting result with submitter: 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6
+  Game: 3 | Action: submitResult | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Creating game with player1: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37
+  Game: 4 | Action: createGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Joining game with player2: 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2
+  Game: 4 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Joining game with player3: 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c
+  Game: 4 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Joining game with player4: 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99
+  Game: 4 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Submitting result with submitter: 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6
+  Game: 4 | Action: submitResult | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Creating game with player1: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37
+  Game: 5 | Action: createGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Joining game with player2: 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2
+  Game: 5 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Joining game with player3: 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c
+  Game: 5 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Joining game with player4: 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99
+  Game: 5 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Submitting result with submitter: 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6
+  Game: 5 | Action: submitResult | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  ---- Processing Games 6 to 10 ----
+  Creating game with player1: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37
+  Game: 6 | Action: createGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Joining game with player2: 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2
+  Game: 6 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Joining game with player3: 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c
+  Game: 6 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Joining game with player4: 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99
+  Game: 6 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Submitting result with submitter: 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6
+  Game: 6 | Action: submitResult | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Creating game with player1: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37
+  Game: 7 | Action: createGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Joining game with player2: 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2
+  Game: 7 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Joining game with player3: 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c
+  Game: 7 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Joining game with player4: 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99
+  Game: 7 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Submitting result with submitter: 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6
+  Game: 7 | Action: submitResult | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Creating game with player1: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37
+  Game: 8 | Action: createGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Joining game with player2: 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2
+  Game: 8 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Joining game with player3: 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c
+  Game: 8 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Joining game with player4: 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99
+  Game: 8 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Submitting result with submitter: 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6
+  Game: 8 | Action: submitResult | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Creating game with player1: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37
+  Game: 9 | Action: createGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Joining game with player2: 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2
+  Game: 9 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Joining game with player3: 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c
+  Game: 9 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Joining game with player4: 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99
+  Game: 9 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Submitting result with submitter: 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6
+  Game: 9 | Action: submitResult | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Creating game with player1: 0xBACEDb593F4d29A416935c91a45325E6c30F0C37
+  Game: 10 | Action: createGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Joining game with player2: 0x8bDe282b72373487CDb6637418A3e80DcDEe62b2
+  Game: 10 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Joining game with player3: 0xe775dB4Ac7048354B03b60223e6520E1c59bDB6c
+  Game: 10 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Joining game with player4: 0x587C7EA3CAe612417fCBE364AEd76e0487fd4b99
+  Game: 10 | Action: joinGame | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Submitting result with submitter: 0x45630a7Db07604f82a1D2ccf8509eb375b1826C6
+  Game: 10 | Action: submitResult | From: 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38 | Nonce: 0 | TxHash: 0x0000000000000000000000000000000000000000000000000000000000000000
+  Batch processing complete.

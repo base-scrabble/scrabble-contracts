@@ -11,7 +11,7 @@ import "../src/access/AccessManager.sol";
 contract AccessManagerUnitTest is Test {
     AccessManager accessManager;
     address superAdmin;
-    address user ;
+    address user;
     bytes32 ipHash = keccak256("192.168.1.1");
 
     /// @notice Sets up the test environment by deploying the AccessManager contract
@@ -27,34 +27,31 @@ contract AccessManagerUnitTest is Test {
         // console.logAddress(superAdmin);
     }
 
-
     /// @notice Tests granting the ADMIN_ROLE to a user
     /// @dev Verifies that the user receives the admin role
-function test_GrantAdminRole() public {
-    // Check that superAdmin actually has DEFAULT_ADMIN_ROLE
-    bool isAdmin = accessManager.hasRole(accessManager.DEFAULT_ADMIN_ROLE(), superAdmin);
-    assertTrue(isAdmin, "superAdmin should have DEFAULT_ADMIN_ROLE");
+    function test_GrantAdminRole() public {
+        // Check that superAdmin actually has DEFAULT_ADMIN_ROLE
+        bool isAdmin = accessManager.hasRole(accessManager.DEFAULT_ADMIN_ROLE(), superAdmin);
+        assertTrue(isAdmin, "superAdmin should have DEFAULT_ADMIN_ROLE");
 
-    // Act as superAdmin
-    vm.startPrank(superAdmin);
+        // Act as superAdmin
+        vm.startPrank(superAdmin);
 
-    console.log("Granting ADMIN_ROLE to user:");
-    console.log(address(user));
+        console.log("Granting ADMIN_ROLE to user:");
+        console.log(address(user));
 
-    // Grant role to user
-    accessManager.grantRole(accessManager.ADMIN_ROLE(), user);
+        // Grant role to user
+        accessManager.grantRole(accessManager.ADMIN_ROLE(), user);
 
-    vm.stopPrank();
+        vm.stopPrank();
 
-    // Verify user now has ADMIN_ROLE
-    bool hasRole = accessManager.hasRole(accessManager.ADMIN_ROLE(), user);
-    console.log("User has ADMIN_ROLE:");
-    console.logBool(hasRole);
+        // Verify user now has ADMIN_ROLE
+        bool hasRole = accessManager.hasRole(accessManager.ADMIN_ROLE(), user);
+        console.log("User has ADMIN_ROLE:");
+        console.logBool(hasRole);
 
-    assertTrue(hasRole, "User should have ADMIN_ROLE");
-}
-
-
+        assertTrue(hasRole, "User should have ADMIN_ROLE");
+    }
 
     // /// @notice Tests granting the ADMIN_ROLE to a user
     // /// @dev Verifies that the user receives the admin role
@@ -68,7 +65,6 @@ function test_GrantAdminRole() public {
     //     // console.logBool(hasRole);
     //     // assertTrue(hasRole, "User should have ADMIN_ROLE");
     // }
-
 
     // /// @notice Tests setting KYC verification for a user
     // /// @dev Grants AUDITOR_ROLE to a user, then sets KYC status for another address

@@ -12,6 +12,7 @@ docs/
 
 # Dotenv file
 .env
+transaction_hashes.log
 
 # Foundry
 broadcast/

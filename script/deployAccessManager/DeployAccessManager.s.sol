@@ -40,6 +40,5 @@ contract DeployAccessManager is Script {
         vm.stopBroadcast();
 
         return accessManager;
-
     }
 }

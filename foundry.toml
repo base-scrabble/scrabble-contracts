@@ -4,6 +4,9 @@ out = "out"
 libs = ["lib"]
 via_ir = true
 
+# [fs]
+# write = ["txLogs.json"]
+
 remappings = [
     '@openzeppelin/contracts=lib/openzeppelin-contracts/contracts',
     "@chainlink/contracts/=lib/chainlink-brownie-contracts/contracts/",

@@ -1,4 +1,3 @@
-
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
@@ -22,10 +21,10 @@ contract HelperConfig is Script {
                 superAdmin: vm.envAddress("ETHEREUM_SEPOLIA_SUPER_ADMIN"),
                 usdtName: "Tether USD",
                 usdtSymbol: "USDT",
-                usdtSupply: 1_000_000 * 10**6, // 1M USDT, 6 decimals
+                usdtSupply: 1_000_000 * 10 ** 6, // 1M USDT, 6 decimals
                 usdcName: "USD Coin",
                 usdcSymbol: "USDC",
-                usdcSupply: 1_000_000 * 10**6 // 1M USDC, 6 decimals
+                usdcSupply: 1_000_000 * 10 ** 6 // 1M USDC, 6 decimals
             });
         } else if (block.chainid == 84532) {
             // Base Sepolia
@@ -33,10 +32,10 @@ contract HelperConfig is Script {
                 superAdmin: msg.sender, // Use deployer's address
                 usdtName: "Tether USD",
                 usdtSymbol: "USDT",
-                usdtSupply: 1_000_000 * 10**6, // 1M USDT, 6 decimals
+                usdtSupply: 1_000_000 * 10 ** 6, // 1M USDT, 6 decimals
                 usdcName: "USD Coin",
                 usdcSymbol: "USDC",
-                usdcSupply: 1_000_000 * 10**6 // 1M USDC, 6 decimals
+                usdcSupply: 1_000_000 * 10 ** 6 // 1M USDC, 6 decimals
             });
         } else if (block.chainid == 8453) {
             // Base Mainnet
@@ -44,10 +43,10 @@ contract HelperConfig is Script {
                 superAdmin: vm.envAddress("BASE_MAINNET_SUPER_ADMIN"),
                 usdtName: "Tether USD",
                 usdtSymbol: "USDT",
-                usdtSupply: 1_000_000 * 10**6, // 1M USDT, 6 decimals
+                usdtSupply: 1_000_000 * 10 ** 6, // 1M USDT, 6 decimals
                 usdcName: "USD Coin",
                 usdcSymbol: "USDC",
-                usdcSupply: 1_000_000 * 10**6 // 1M USDC, 6 decimals
+                usdcSupply: 1_000_000 * 10 ** 6 // 1M USDC, 6 decimals
             });
         } else {
             // Local Anvil or other networks
@@ -55,10 +54,10 @@ contract HelperConfig is Script {
                 superAdmin: vm.envAddress("DEFAULT_SUPER_ADMIN"),
                 usdtName: "Tether USD",
                 usdtSymbol: "USDT",
-                usdtSupply: 1_000_000 * 10**6, // 1M USDT, 6 decimals
+                usdtSupply: 1_000_000 * 10 ** 6, // 1M USDT, 6 decimals
                 usdcName: "USD Coin",
                 usdcSymbol: "USDC",
-                usdcSupply: 1_000_000 * 10**6 // 1M USDC, 6 decimals
+                usdcSupply: 1_000_000 * 10 ** 6 // 1M USDC, 6 decimals
             });
         }
     }

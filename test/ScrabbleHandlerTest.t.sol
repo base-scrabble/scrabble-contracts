@@ -31,7 +31,11 @@ contract ScrabbleHandler is Test {
         scrabble = _scrabble;
         wallet = _wallet;
         vm.etch(priceFeed, bytes("mock"));
-        vm.mockCall(priceFeed, abi.encodeWithSelector(AggregatorV3Interface.latestRoundData.selector), abi.encode(0, 2000e8, 0, 0, 0));
+        vm.mockCall(
+            priceFeed,
+            abi.encodeWithSelector(AggregatorV3Interface.latestRoundData.selector),
+            abi.encode(0, 2000e8, 0, 0, 0)
+        );
         vm.etch(usdt, bytes("mock"));
         vm.etch(usdc, bytes("mock"));
         vm.prank(superAdmin);
@@ -164,7 +168,6 @@ contract ScrabbleHandler is Test {
             assertGe(usdcBalance, 0);
         }
     }
-  
 
     /// @notice Generates EIP-712 signature for authentication
     /// @param player Address of the player to sign for

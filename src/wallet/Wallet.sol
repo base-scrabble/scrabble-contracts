@@ -2,7 +2,6 @@
 pragma solidity ^0.8.20;
 
 import {AggregatorV3Interface} from "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
-// import {ReentrancyGuard} from "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import {PriceConverter} from "../libraries/PriceConverter.sol";
 import {IERC20} from "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import {AccessManager} from "../access/AccessManager.sol";
@@ -40,11 +39,12 @@ contract Wallet is EIP712, AccessManager {
     /// STORAGE
     mapping(address => mapping(address => uint256)) private s_balances;
     uint256 private constant MINIMUM_DEPOSIT = 1e8;
+    // uint256 private constant MINIMUM_DEPOSIT = 0.0001 ether;
 
     mapping(address => bool) private s_authorizedCallers;
     address private immutable i_admin;
 
-    AggregatorV3Interface private immutable i_priceFeed;
+    AggregatorV3Interface private i_priceFeed;
     address public immutable USDT;
     address public immutable USDC;
 
@@ -78,20 +78,14 @@ contract Wallet is EIP712, AccessManager {
 
     /**
      * @notice Deploy wallet with price feed, token addresses, and access control
-     * @param priceFeed Chainlink price feed address for ETH/USD conversions
+      @param priceFeed Chainlink price feed address for ETH/USD conversions 
      * @param superAdmin Admin address with DEFAULT_ADMIN_ROLE and ADMIN_ROLE
      * @param usdt USDT token contract address
      * @param backendSigner EOA used for EIP-712 signature verification
      * @param usdc USDC token contract address
      */
-    constructor(
-        address priceFeed, 
-        address superAdmin, 
-        address usdt, 
-        address backendSigner, 
-        address usdc
-    ) 
-        EIP712("Wallet", "1") 
+    constructor(address priceFeed, address superAdmin, address usdt, address backendSigner, address usdc)
+        EIP712("Wallet", "1")
         AccessManager(superAdmin)
     {
         i_priceFeed = AggregatorV3Interface(priceFeed);
@@ -104,7 +98,7 @@ contract Wallet is EIP712, AccessManager {
     // ------------------------
     // Admin: manage authorized callers (game contracts, controllers)
     // ------------------------
-    
+
     /**
      * @notice Authorize or revoke an external contract that can call deductFunds/addWinnings
      * @param caller The contract address to authorize or revoke (game contract, controller)
@@ -121,14 +115,21 @@ contract Wallet is EIP712, AccessManager {
     // ------------------------
 
     // -------- ETH Operations --------
-    
+
     /**
      * @notice Deposit ETH into the wallet
      * @param backendSig EIP-712 signature from backend authorizing the deposit
      * @dev Amount must meet MINIMUM_DEPOSIT requirement when converted to USD
      * @dev Requires backend authentication, non-reentrant, not paused, and not blacklisted
      */
-    function depositETH(bytes calldata backendSig) external payable nonReentrant whenNotPaused notBlacklisted onlyAuthenticated(backendSig) {
+    function depositETH(bytes calldata backendSig)
+        external
+        payable
+        nonReentrant
+        whenNotPaused
+        notBlacklisted
+        onlyAuthenticated(backendSig)
+    {
         if (msg.value.getConversionRate(i_priceFeed) < MINIMUM_DEPOSIT) {
             revert Wallet__InsufficientFundsToDeposit();
         }
@@ -142,7 +143,13 @@ contract Wallet is EIP712, AccessManager {
      * @param backendSig EIP-712 signature from backend authorizing the withdrawal
      * @dev Requires sufficient balance, backend authentication, non-reentrant, not paused, and not blacklisted
      */
-    function withdrawETH(uint256 amount, bytes calldata backendSig) external nonReentrant whenNotPaused notBlacklisted onlyAuthenticated(backendSig) {
+    function withdrawETH(uint256 amount, bytes calldata backendSig)
+        external
+        nonReentrant
+        whenNotPaused
+        notBlacklisted
+        onlyAuthenticated(backendSig)
+    {
         uint256 balance = s_balances[msg.sender][address(0)];
         if (amount > balance) revert Wallet__BalanceIsLessThanAmountToWithdraw();
         if (amount == 0) revert Wallet__AmountTooSmall();
@@ -156,7 +163,7 @@ contract Wallet is EIP712, AccessManager {
     }
 
     // -------- ERC20 Operations (USDT/USDC) --------
-    
+
     /**
      * @notice Deposit ERC20 tokens (USDT or USDC) into the wallet
      * @param token Token contract address (must be USDT or USDC)
@@ -164,7 +171,13 @@ contract Wallet is EIP712, AccessManager {
      * @param backendSig EIP-712 signature from backend authorizing the deposit
      * @dev Requires token approval before calling, supports only USDT and USDC
      */
-    function depositToken(address token, uint256 amount, bytes calldata backendSig) external whenNotPaused nonReentrant notBlacklisted onlyAuthenticated(backendSig) {
+    function depositToken(address token, uint256 amount, bytes calldata backendSig)
+        external
+        whenNotPaused
+        nonReentrant
+        notBlacklisted
+        onlyAuthenticated(backendSig)
+    {
         if (!_isSupportedToken(token)) revert Wallet__UnsupportedToken();
         if (amount == 0) revert Wallet__AmountTooSmall();
 
@@ -182,7 +195,13 @@ contract Wallet is EIP712, AccessManager {
      * @param backendSig EIP-712 signature from backend authorizing the withdrawal
      * @dev Requires sufficient balance of the specified token
      */
-    function withdrawToken(address token, uint256 amount, bytes calldata backendSig) external whenNotPaused nonReentrant notBlacklisted onlyAuthenticated(backendSig) {
+    function withdrawToken(address token, uint256 amount, bytes calldata backendSig)
+        external
+        whenNotPaused
+        nonReentrant
+        notBlacklisted
+        onlyAuthenticated(backendSig)
+    {
         if (!_isSupportedToken(token)) revert Wallet__UnsupportedToken();
         if (amount == 0) revert Wallet__AmountTooSmall();
 
@@ -265,7 +284,12 @@ contract Wallet is EIP712, AccessManager {
      * @param amount Amount to credit to user balance
      * @dev Only callable by authorized game contracts when not paused
      */
-    function addWinnings(address user, address token, uint256 amount) external whenNotPaused onlyAuthorizedCaller nonReentrant {
+    function addWinnings(address user, address token, uint256 amount)
+        external
+        whenNotPaused
+        onlyAuthorizedCaller
+        nonReentrant
+    {
         if (!_isSupportedToken(token) && token != address(0)) revert Wallet__UnsupportedToken();
         s_balances[user][token] += amount;
         emit FundsReceivedFromGame(user, token, amount);
@@ -286,7 +310,7 @@ contract Wallet is EIP712, AccessManager {
         bytes32 digest = _hashTypedDataV4(structHash);
         address recovered = ECDSA.recover(digest, backendSig);
         if (recovered != i_backendSigner) revert Wallet__NotAuthenticated();
-         s_nonces[msg.sender]++;
+        s_nonces[msg.sender]++;
     }
 
     /**
@@ -322,14 +346,12 @@ contract Wallet is EIP712, AccessManager {
     }
 
     function getDigest(bytes32 structHash) external view returns (bytes32) {
-    return _hashTypedDataV4(structHash);
-}
+        return _hashTypedDataV4(structHash);
+    }
 
-
-function getNonce(address player) external view returns (uint256) {
-    return s_nonces[player];
-}
-
+    function getNonce(address player) external view returns (uint256) {
+        return s_nonces[player];
+    }
 
     /**
      * @notice Check if caller address is authorized for game interactions

@@ -1,4 +1,3 @@
-
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
@@ -31,13 +30,7 @@ contract DeployWallet is Script {
         vm.startBroadcast();
 
         // Deploy Wallet
-        Wallet wallet = new Wallet(
-            config.priceFeed,
-            config.superAdmin,
-            config.usdt,
-            config.backendSigner,
-            config.usdc
-        );
+        Wallet wallet = new Wallet(config.priceFeed, config.superAdmin, config.usdt, config.backendSigner, config.usdc);
         console.log("Wallet deployed to:", address(wallet));
 
         // Verify initialization

@@ -24,7 +24,11 @@ contract ScrabbleInvariantTest is Test {
     /// @dev Deploys Wallet and Scrabble contracts, sets up mocks for price feed and tokens
     function setUp() public {
         vm.etch(priceFeed, bytes("mock"));
-        vm.mockCall(priceFeed, abi.encodeWithSelector(AggregatorV3Interface.latestRoundData.selector), abi.encode(0, 2000e8, 0, 0, 0));
+        vm.mockCall(
+            priceFeed,
+            abi.encodeWithSelector(AggregatorV3Interface.latestRoundData.selector),
+            abi.encode(0, 2000e8, 0, 0, 0)
+        );
         vm.etch(usdt, bytes("mock"));
         vm.etch(usdc, bytes("mock"));
         wallet = new Wallet(priceFeed, superAdmin, usdt, backendSigner, usdc);
@@ -45,12 +49,11 @@ contract ScrabbleInvariantTest is Test {
         // console.log("ETH balance:", ethBalance, "USDT balance:", usdtBalance, "USDC balance:", usdcBalance);
 
         console.log("ETH balance:");
-console.log(ethBalance);
-console.log("USDT balance:");
-console.log(usdtBalance);
-console.log("USDC balance:");
-console.log(usdcBalance);
-
+        console.log(ethBalance);
+        console.log("USDT balance:");
+        console.log(usdtBalance);
+        console.log("USDC balance:");
+        console.log(usdcBalance);
 
         assertGe(ethBalance, 0, "ETH balance should be non-negative");
         assertGe(usdtBalance, 0, "USDT balance should be non-negative");

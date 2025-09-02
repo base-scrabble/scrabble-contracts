@@ -25,7 +25,11 @@ contract ScrabbleIntegrationTest is Test {
     /// @dev Deploys Wallet and Scrabble contracts, configures mocks for price feed and tokens
     function setUp() public {
         vm.etch(priceFeed, bytes("mock"));
-        vm.mockCall(priceFeed, abi.encodeWithSelector(AggregatorV3Interface.latestRoundData.selector), abi.encode(0, 2000e8, 0, 0, 0));
+        vm.mockCall(
+            priceFeed,
+            abi.encodeWithSelector(AggregatorV3Interface.latestRoundData.selector),
+            abi.encode(0, 2000e8, 0, 0, 0)
+        );
         vm.etch(usdt, bytes("mock"));
         vm.etch(usdc, bytes("mock"));
         wallet = new Wallet(priceFeed, superAdmin, usdt, backendSigner, usdc);
