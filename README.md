@@ -61,9 +61,9 @@ This section provides a quick overview of the essential contract addresses and c
 ⚙️ Contract Addresses
 Access Manager: 0x0900b2fb8671a8b9846a3F7B030b39F8D8c94f2e
 
-Base Scrabble: 0xC15b61947746e0C31484567185111fe87eda6350
+Base Scrabble: 0xED92f4334f80A8D43d69c10b7cC91B5347901D42
 
-Wallet Contract: 0x9c5d8960e9058F512215650b21B15264A5C324cf
+Wallet Contract: 0xb65FddBF513e46B5af907BFC9596c1a8D0712Ab1
 
 
 
